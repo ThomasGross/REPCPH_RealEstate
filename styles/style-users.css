@@ -1,0 +1,127 @@
+#users-container {
+	margin-top: 69px;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: black;
+	overflow: scroll;
+}
+
+#users-container h1 {
+	padding: 20px 0px 20px 0px;
+}
+
+#line1{
+	height: 1px;
+	background: black;
+ 	width: 100%;
+}
+
+.user-table {
+	width: 80vw;
+	margin-top: 20px;
+    padding: 10px 10px 10px 10px;
+    background-color: #f7f7f7;
+
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+#users-container tr {
+	width: 80vw;
+	height: 30px;
+}
+
+#users-container tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+
+#users-container th{
+	height: 80px;
+	
+}
+
+#users-container td{
+	text-align: center;
+	width: 300px;
+	height: 60px;
+}
+
+.fa-trash{
+	color: #E81600;
+}
+
+.fa-edit{
+	color: #007777;
+}
+
+#wdw-create-edit-user{
+
+	margin-top: 69px;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: black;
+	overflow: scroll;
+
+}
+
+#wdw-create-edit-user h1 {
+	padding: 20px 0px 20px 0px;
+}
+
+#wdw-create-edit-user input {
+	color: black;
+}
+
+#wdw-create-edit-user .dropdown {
+
+	display: flex;
+	margin-left: 0px;
+	flex: 1;
+
+}
+
+#wdw-create-edit-user #dropdown-group span {
+	font-size: 14px;
+}
+
+#wdw-create-edit-user.dropdown .selected, .dropdown li {
+    display: block;
+    font-size: 14px; 
+    line-height: 1; 
+    color: #000;
+    padding: 9px 12px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#wdw-create-edit-user .dropdown li.focus {
+	background: #007777;
+}
+
+#wdw-create-edit-user .dropdown span {
+	margin-left: 0px;
+}
+
+#txt-login-id {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+

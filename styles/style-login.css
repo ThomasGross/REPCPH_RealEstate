@@ -1,0 +1,115 @@
+.background-img{
+	background-image: url("/CMSV1/apartment3.jpg");
+	background-repeat: no-repeat;
+	/*background-size: auto 100vh;*/
+	background-size: cover;
+	background-position: center;
+	filter: grayscale(0.30); /* Microsoft Edge and Firefox 35+ */
+	-webkit-filter: grayscale(0.30); /* Google Chrome, Safari 6+ & Opera 15+ */
+
+}
+
+.background-layer{
+	background-color: rgba(64,64,64,0.7);
+}
+
+#login-content{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+
+#login-content hr{
+	width: 450px;
+}
+
+
+#login-headline{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 450px;
+	text-align: center;
+}
+
+
+#login-headline h1 {
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.input-container{
+	display: flex;
+	flex-direction: row;
+	width: 450px;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+
+.input-container span {
+	font-size: 22px;
+	margin: 0px 0px 0px 8px;
+	flex: 1;
+}
+
+
+.input-container .txt-input {
+	width: 100%;
+	padding: 20px 20px 16px 0px;
+	font-size: 14px;
+	font-weight: 100;
+	flex: 10;
+}
+
+.input-option-remember{
+	display: flex;
+	padding: 20px 20px 16px 8px;
+	flex: 1;
+	font-size: 14px;
+	flex-direction: row;
+	align-items: center;
+}
+.input-option-remember input{
+	margin-right: 20px;
+	padding: 20px 20px 16px 8px;
+}
+
+.input-option-forgot{
+	font-size: 14px;
+	padding: 20px 20px 16px 8px;
+}
+
+.btn {
+	color: #ffffff;
+	font-size: 14px;
+	background: #007777;
+	padding: 10px 20px 10px 20px;
+	margin-top: 10px;
+	border: 0px;
+	width: 450px;
+	text-align: center;
+}
+
+.btn:hover {
+	background: #006666;
+	text-decoration: none;
+}
+.btn:focus {
+	outline: none;
+}
+
+/*REP|CPH*/
+
+
+
+
+
+
+
+

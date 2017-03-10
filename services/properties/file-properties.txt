@@ -1,0 +1,22 @@
+[
+    {
+        "sUniqueId": 100000,
+        "sAddress": "Lille Vibyvej 69, 8520 Lystrup",
+        "iPrice": "10.000.000"
+    },
+    {
+        "sUniqueId": 100001,
+        "sAddress": null,
+        "iPrice": "2milss"
+    },
+    {
+        "sUniqueId": 100002,
+        "sAddress": null,
+        "iPrice": "øølololol"
+    },
+    {
+        "sUniqueId": 100003,
+        "sAddress": "nullhh",
+        "iPrice": "øø"
+    }
+]

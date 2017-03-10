@@ -1,0 +1,54 @@
+#wdw-create-edit-property{
+
+	margin-top: 69px;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: black;
+	overflow: scroll;
+
+}
+
+#wdw-create-edit-property h1 {
+	padding: 20px 0px 20px 0px;
+}
+
+#wdw-create-edit-property input {
+	color: black;
+}
+
+#wdw-create-edit-property .dropdown {
+
+	display: flex;
+	margin-left: 0px;
+	flex: 1;
+
+}
+
+#wdw-create-edit-property #dropdown-group span {
+	font-size: 14px;
+}
+
+#wdw-create-edit-property .dropdown .selected, .dropdown li {
+    display: block;
+    font-size: 14px; 
+    line-height: 1; 
+    color: #000;
+    padding: 9px 12px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#wdw-create-edit-property .dropdown li.focus {
+	background: #007777;
+}
+
+#wdw-create-edit-property .dropdown span {
+	margin-left: 0px;
+}
+
+#txt-login-id {
+	display: none;
+}
