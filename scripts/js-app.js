@@ -59,6 +59,7 @@ $("#btn-create-account").on('click', function(){
 
 });
 
+
 function createUser() {
 
 	var sStatus = '{"status":"fail"}';
