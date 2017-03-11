@@ -11,6 +11,6 @@
         "username": "Kim",
         "email": "Kim@gmail.com",
         "password": "kim",
-        "userRole": "user"
+        "userRole": "superadmin"
     }
 ]

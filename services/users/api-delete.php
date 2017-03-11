@@ -2,8 +2,6 @@
 
 	$sUserId = $_POST['id'];
 
-	echo $sUserId;
-
 	$sFileName = 'users.txt';
 
 	// open the file and get the contents of it
@@ -21,8 +19,6 @@
 		}
 	}
 	
-
-
 
 	// object to text
 	$sajUsers = json_encode( $ajUsers , JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );

@@ -1,17 +1,16 @@
-
-// var isUserLockedIn = false;
+var userRole = "";
 
 $(document).on("click",".link", function() {
 
-	removeAttr();
+	fnRemoveUserAttr();
 
 	var sGoToWindow = $(this).attr("data-go-to");
 
 	if ($(this).parent().siblings(".lbl-user-id").text()) {
-		editData(this);
+		fnEditData(this);
 	};
 
-	showWindow(sGoToWindow);
+	fnShowWindow(sGoToWindow);
 
 });
 
@@ -49,20 +48,28 @@ $('#btn-login').on("click", function() {
 	var sUsername = $("#txt-login-username").val();
 	var sPassword = $("#txt-login-password").val();
 
-	loginUser(sUsername,sPassword);
+	fnLoginUser(sUsername,sPassword);
 
 });
 
 
 $("#btn-create-account").on('click', function(){
-	var jsStatus = createUser();
+	var jsStatus = fnCreateUser();
 
 });
 
 
-function createUser() {
+$(document).on("click", ".fa-trash", function(){
 
-	var sStatus = '{"status":"fail"}';
+	var sUserIdToDelete = $(this).parent().siblings('.lbl-user-id').text();
+
+	$(this).parent().parent().remove();
+	fnDeleteUser( sUserIdToDelete );
+
+});
+
+
+function fnCreateUser() {
 
 	$.ajax({
 		"url":"services/users/api-create.php",
@@ -77,7 +84,7 @@ function createUser() {
 
 };
 
-function removeAttr(){
+function fnRemoveUserAttr(){
 	$("#txt-create-edit-id").val( "" );
 	$("#txt-create-edit-username").val( "" );
 	$("#txt-create-edit-email").val( "" );
@@ -85,7 +92,7 @@ function removeAttr(){
 	$("#select-user-dropdown").parent().siblings(".selected").text( "user" );
 }
 
-function editData(data){
+function fnEditData(data){
 
 	var sUserIdToEdit =  $(data).parent().siblings(".lbl-user-id").text();
 	var sUsernameToEdit =  $(data).parent().siblings(".lbl-user-username").text();
@@ -136,7 +143,7 @@ function editData(data){
 	});
 
 
-	function showWindow(sWindow) {
+	function fnShowWindow(sWindow) {
 
 		if (sWindow != null || sWindow != undefined) {
 
@@ -148,7 +155,7 @@ function editData(data){
 
 	};
 
-	function loginUser(username, password) {
+	function fnlLoginUser(username, password) {
 
 		var sUrl = "/CMSV1/services/users/api-get.php"
 		var startWindow = "wdw-frontpage"
@@ -159,7 +166,7 @@ function editData(data){
 
 				if (ajData[i].username == username && ajData[i].password == password){
 					isUserLockedIn = true;
-					showWindow(startWindow);
+					fnShowWindow(startWindow);
 				} 
 			}
 		});
@@ -273,14 +280,7 @@ function fnGetUsers(){
 	});
 }
 
-$(document).on("click", ".fa-trash", function(){
 
-	var sUserIdToDelete = $(this).parent().siblings('.lbl-user-id').text();
-
-	$(this).parent().parent().remove();
-	fnDeleteUser( sUserIdToDelete );
-
-});
 
 
 function fnDeleteUser(sUserId){

@@ -6,8 +6,6 @@
 	$sPassword = $_POST['txt-user-password'];
 	$sUserRole = $_POST['txt-user-role'];
 
-	echo $sUserId;
-
 	$sFileName = 'users.txt';
 
 	// open the file and get the contents of it
