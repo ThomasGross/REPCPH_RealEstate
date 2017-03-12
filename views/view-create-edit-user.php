@@ -3,7 +3,7 @@
 		Create/Edit user
 	</h1>
 
-	<form id="frm-create-edit-users" method="post" enctype="multipart/form-data">
+	<form id="frm-create-edit-users" method="post" enctype="multipart/form-data" autocomplete="off">
 
 		<input type="hidden" id="txt-create-edit-id" name="txt-user-id" />
 

@@ -4,8 +4,6 @@ function fnLoginUser(username, password) {
 
 	console.log("asd");
 
-	var startWindow = "wdw-frontpage";
-
 	$.ajax({
 
 		"url":"/CMSV1/services/users/login.php",
@@ -17,7 +15,9 @@ function fnLoginUser(username, password) {
 	}).done( function( jData ){
 
 		if (jData.status == "ok") {
+			console.log("pøøøøølllle");
 			// TOO DOO SWEET ALERT success
+			location.reload();
 		} else {
 			// TOO DOO SWEET ALERT error
 		}
@@ -27,5 +27,40 @@ function fnLoginUser(username, password) {
 	});
 
 };
+
+function fnUserSignUp() {
+
+	$.ajax({
+
+		"url":"services/users/api-create.php",
+		"method":"post",
+		"data": $("#frm-user-create").serialize(),
+		"cache":false,
+		"dataType":"json"
+
+	}).done( function( jData ){
+
+		if (jData.status == "ok") {
+			// TOO DOO SWEET ALERT success
+			swal({
+				title: "User created",
+				text: "Message!",
+				type: "success",
+				confirmButtonText: "OK"
+			},
+			function(){
+				fnLoginUser();
+			});
+		} else {
+			// TOO DOO SWEET ALERT error
+		}
+				
+	}).fail( function(){
+
+	});
+
+};
+
+
 
 

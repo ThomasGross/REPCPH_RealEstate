@@ -52,7 +52,7 @@ $('#btn-login').on("click", function() {
 
 
 $("#btn-create-account").on('click', function(){
-	var jsStatus = fnCreateUser();
+	var jsStatus = fnUserSignUp();
 
 });
 
@@ -65,22 +65,6 @@ $(document).on("click", ".fa-trash", function(){
 	fnDeleteUser( sUserIdToDelete );
 
 });
-
-
-function fnCreateUser() {
-
-	$.ajax({
-		"url":"services/users/api-create.php",
-		"method":"post",
-		"data": $("#frm-user-create").serialize()
-	}).done( function(){
-		// sStatus = '{"status":"success"}';
-	}).fail( function(){
-		// sStatus = '{"status":"fail"}';
-	});
-
-
-};
 
 function fnRemoveUserAttr(){
 	$("#txt-create-edit-id").val( "" );

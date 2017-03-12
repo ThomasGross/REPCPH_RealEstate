@@ -43,10 +43,9 @@
 	// convert the array to text and make it look nice
 	$sajUsers = json_encode( $ajUsers , JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
 
-
-	echo $sajUsers;
-
 	// save the text back to the file 
 	file_put_contents( "users.txt" , $sajUsers);
+
+	echo '{"status":"ok"}';
 
 ?>

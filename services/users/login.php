@@ -13,7 +13,6 @@ for( $i = 0; $i < count($ajUsers) ; $i++ ){
 			// check if the ids match
 	if( $sUsername ==  $ajUsers[$i]->username && $sPassword ==  $ajUsers[$i]->password){
 
-
 		$jsUserSession = '{
 			"id":"'.$ajUsers[$i]->id.'",
 			"username":"'.$ajUsers[$i]->username.'",

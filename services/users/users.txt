@@ -12,5 +12,12 @@
         "email": "Kim@gmail.com",
         "password": "kim",
         "userRole": "superadmin"
+    },
+    {
+        "id": "58c5a51d143ba",
+        "username": "asdasdasd",
+        "email": "asdas",
+        "password": "ads",
+        "userRole": "user"
     }
 ]

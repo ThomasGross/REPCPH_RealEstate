@@ -1,10 +1,34 @@
+<?php 
+
+	if ($userSession['userRole'] == "superadmin") {
+
+		$sMenuItems = 	'
+		<div class="link" data-go-to="wdw-properties">Properties</div>
+		<div class="link" data-go-to="wdw-properties-admin">Properties admin</div>
+		<div class="link" data-go-to="wdw-users">Users</div>
+		';
+
+	} else if ($userSession['userRole'] == "admin"){
+
+		$sMenuItems = 	'
+		<div class="link" data-go-to="wdw-properties">Properties</div>
+		<div class="link" data-go-to="wdw-users">Users</div>
+		';
+	} else {
+
+		$sMenuItems = 	'
+		<div class="link" data-go-to="wdw-properties">Properties</div>
+		';
+	}
+
+?>
 
 <div id="header-menu" class="header">
 	<div class="header-container">
 
 
 		<div class="logo">
-			
+
 			<h1 id="logo1">REP</h1>
 			<h1 id="logo2">|</h1>
 			<h1 id="logo3">CPH</h1>
@@ -12,9 +36,9 @@
 
 
 		<div class="navigation">
-			<div class="link" data-go-to="wdw-properties">Properties</div>
-			<div class="link" data-go-to="wdw-properties-admin">Properties admin</div>
-			<div class="link" data-go-to="wdw-users">Users</div>
+
+			<?php echo $sMenuItems;?>
+
 
 		</div>
 

@@ -10,7 +10,6 @@ body{
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	color: white;
 }
 
 .wdw{
@@ -42,10 +41,12 @@ textarea:focus, input:focus {
 
 #wdw-login {
 	display: flex;
+	color: white;
 }
 
 #wdw-signup {
 	display: flex;
+	color: white;
 }
 
 #wdw-frontpage{

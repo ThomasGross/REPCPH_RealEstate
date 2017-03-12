@@ -14,7 +14,7 @@
 					</p>
 				</div>
 
-				<form id="frm-user-create" method="post" action="services/users/api-create.php">
+				<form id="frm-user-create" method="post" action="services/users/api-create.php" autocomplete="off">
 
 					<div class="input-container">
 						<span class="fa fa-user"></span>

@@ -3,7 +3,7 @@
 			Create/Edit property
 		</h1>
 
-		<form id="frm-create-edit-user" method="post">
+		<form id="frm-create-edit-user" method="post" autocomplete="off">
 
 			<!-- <input type="hidden" id="txt-create-edit-id" name="txt-user-id" /> -->
 
@@ -17,7 +17,7 @@
 				<span class="fa fa-money"></span>
 				<input class="txt-input" id="txt-create-edit-price" placeholder="Price" type="text" name="txt-price">
 			</div>
-			
+
 
 		</form>
 
