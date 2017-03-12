@@ -1,5 +1,3 @@
-var userRole = "";
-
 $(document).on("click",".link", function() {
 
 	fnRemoveUserAttr();
@@ -155,7 +153,7 @@ function fnEditData(data){
 
 	};
 
-	function fnlLoginUser(username, password) {
+	function fnLoginUser(username, password) {
 
 		var sUrl = "/CMSV1/services/users/api-get.php"
 		var startWindow = "wdw-frontpage"
@@ -169,7 +167,12 @@ function fnEditData(data){
 					fnShowWindow(startWindow);
 				} 
 			}
-		});
+		}).done(function() {
+    		console.log( "second success" );
+  		})
+  		.fail(function() {
+    		console.log( "error" );
+ 		});
 	};
 
 
