@@ -1,8 +1,11 @@
-<div class="properties-container">
+
+<div id="wdw-properties-admin" class="wdw">
+	<div class="properties-container">
 
 
-  <h1>PROPERTY LIST</h1>
+		<h1>PROPERTY LIST</h1>
 
-  <table id="property-table-admin"></table>
+		<table id="property-table-admin"></table>
 
+	</div>
 </div>

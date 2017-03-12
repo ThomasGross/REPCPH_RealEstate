@@ -149,30 +149,8 @@ function fnEditData(data){
 			var sWindowToShow = sWindow;
 
 			$("#"+sWindowToShow).show();
-		}
+		} 
 
-	};
-
-	function fnLoginUser(username, password) {
-
-		var sUrl = "/CMSV1/services/users/api-get.php"
-		var startWindow = "wdw-frontpage"
-
-		$.getJSON( sUrl , function( ajData ){
-
-			for(var i = 0; i < ajData.length; i++ ){
-
-				if (ajData[i].username == username && ajData[i].password == password){
-					isUserLockedIn = true;
-					fnShowWindow(startWindow);
-				} 
-			}
-		}).done(function() {
-    		console.log( "second success" );
-  		})
-  		.fail(function() {
-    		console.log( "error" );
- 		});
 	};
 
 

@@ -19,66 +19,63 @@
 </head>
 <body>
 
-	<div id="header-menu" class="header">
-		<?php 
-			require_once("views/header-menu.php");
-		?>
-	</div>
+	
+	<?php 
+	// require_once("views/header-menu.php");
+	?>
 
 
-	<div id="wdw-login" class="wdw">
-		<?php 
-			require_once("views/view-login-menu.php");
-		?>
-	</div>
+
+	<?php 
+	require_once("views/view-login-menu.php");
+	?>
+	
 
 
-	<div id="wdw-signup" class="wdw">
-		<?php 
-		require_once("views/view-signup.php");
-		?>
-	</div>
+	<?php 
+	require_once("views/view-signup.php");
+	?>
 
-	<div id="wdw-frontpage" class="wdw">
-		<?php 
+
+	
+	<?php 
 		// require_once("views/view-frontpage.php");
-		?>
-	</div>
+	?>
 
-	<div id="wdw-properties" class="wdw">
-		<?php 
+
+
+	<?php 
 		// require_once("views/view-properties.php");
-		?>
-	</div>
+	?>
 
-	<div id="wdw-properties-admin" class="wdw">
-		<?php 
+
+
+	<?php 
 		// require_once("views/view-properties-admin.php");
-		?>
-	</div>
+	?>
 
-	<div id="wdw-create-edit-property" class="wdw">
-		<?php 
+
+
+	<?php 
 		// require_once("views/view-create-edit-property.php");
-		?>
-	</div>
+	?>
 
-	<div id="wdw-users" class="wdw">
-		<?php 
+
+
+	<?php 
 		// require_once("views/view-users.php");
-		?>
-	</div>
+	?>
 
-	<div id="wdw-create-edit-user" class="wdw">
-		<?php 
+
+	<?php 
 		// require_once("views/view-create-edit-user.php");
-		?>
-	</div>
+	?>
 
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="scripts/js-app.js"></script>
+	<script type="text/javascript" src="scripts/js-login.js"></script>
 	<script src="scripts/jquery.easydropdown.js" type="text/javascript"></script>
 
 
