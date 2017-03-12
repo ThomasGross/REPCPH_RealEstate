@@ -15,11 +15,16 @@ function fnLoginUser(username, password) {
 	}).done( function( jData ){
 
 		if (jData.status == "ok") {
-			console.log("pøøøøølllle");
 			// TOO DOO SWEET ALERT success
 			location.reload();
 		} else {
-			// TOO DOO SWEET ALERT error
+
+			swal({
+				title: "Incorrect username or password",
+				text: "Please try again",
+				type: "error",
+				confirmButtonText: "OK"
+			})
 		}
 				
 	}).fail( function(){
@@ -41,15 +46,14 @@ function fnUserSignUp() {
 	}).done( function( jData ){
 
 		if (jData.status == "ok") {
-			// TOO DOO SWEET ALERT success
 			swal({
 				title: "User created",
-				text: "Message!",
+				text: "Thanks for joining REP_CPH",
 				type: "success",
 				confirmButtonText: "OK"
 			},
 			function(){
-				fnLoginUser();
+				location.reload();
 			});
 		} else {
 			// TOO DOO SWEET ALERT error
