@@ -1,7 +1,5 @@
 <div id="wdw-signup" class="wdw">
 
-
-
 	<div class="background-img">
 		<div class="background-layer">
 			<div id="login-content">

@@ -19,7 +19,7 @@ function fnLoginUser(username, password) {
 
 			swal({
 				title: "Incorrect username or password",
-				text: "Please try again",
+				text: "Please try again..",
 				type: "error",
 				confirmButtonText: "OK"
 			})

@@ -35,6 +35,21 @@ textarea:focus, input:focus {
 	outline: none;
 }
 
+
+* .sa-confirm-button-container .confirm{
+	background: #007777 !important;
+	width: 450px !important;
+	font-size: 14px;
+	-webkit-border-radius: 3px; 
+    border-radius: 3px; 
+}
+
+* .sa-confirm-button-container .confirm:hover{
+	background: #006666 !important;
+
+}
+
+
 #wdw-login {
 	display: flex;
 	color: white;

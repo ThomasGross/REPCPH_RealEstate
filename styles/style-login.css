@@ -115,6 +115,8 @@
 	border: 0px;
 	width: 450px;
 	text-align: center;
+	-webkit-border-radius: 3px; 
+    border-radius: 3px; 
 }
 
 .btn:hover {
