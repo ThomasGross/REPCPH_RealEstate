@@ -1,5 +1,32 @@
 <?php 
 	session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Real Estate Partner CPH</title>
+
+	<link rel="stylesheet" type="text/css" href="styles/easydropdown.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="styles/style-login.css">
+	<link rel="stylesheet" type="text/css" href="styles/style-main.css">
+	<link rel="stylesheet" type="text/css" href="styles/style-header.css">
+	<link rel="stylesheet" type="text/css" href="styles/style-frontpage.css">
+	<link rel="stylesheet" type="text/css" href="styles/style-properties.css">
+	<link rel="stylesheet" type="text/css" href="styles/style-users.css">
+	<link rel="stylesheet" type="text/css" href="styles/style-properties-admin.css">
+	<link rel="stylesheet" type="text/css" href="styles/style-properties-create-edit.css">
+
+	<link rel="stylesheet" type="text/css" href="styles/sweetalert.css">
+
+	
+</head>
+<body>
+
+	
+	<?php 
 
 	if (isset($_SESSION['userSession'])) {
 
@@ -27,7 +54,6 @@
 			require_once("views/view-users.php");
 
 		}
-	
 
 	} else {
 			
@@ -37,33 +63,7 @@
 	
 	}
 
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Real Estate Partner CPH</title>
-
-	<link rel="stylesheet" type="text/css" href="styles/easydropdown.css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-	<link rel="stylesheet" type="text/css" href="styles/style-login.css">
-	<link rel="stylesheet" type="text/css" href="styles/style-main.css">
-	<link rel="stylesheet" type="text/css" href="styles/style-header.css">
-	<link rel="stylesheet" type="text/css" href="styles/style-frontpage.css">
-	<link rel="stylesheet" type="text/css" href="styles/style-properties.css">
-	<link rel="stylesheet" type="text/css" href="styles/style-users.css">
-	<link rel="stylesheet" type="text/css" href="styles/style-properties-admin.css">
-	<link rel="stylesheet" type="text/css" href="styles/style-properties-create-edit.css">
-
-	<link rel="stylesheet" type="text/css" href="styles/sweetalert.css">
-
-	
-</head>
-<body>
-
-	
-	
+	?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 

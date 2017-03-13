@@ -12,5 +12,19 @@
         "email": "Kim@gmail.com",
         "password": "kim",
         "userRole": "superadmin"
+    },
+    {
+        "id": "58c6d01968476",
+        "username": "",
+        "email": "",
+        "password": "",
+        "userRole": "user"
+    },
+    {
+        "id": "58c6da94cfb3f",
+        "username": "",
+        "email": "",
+        "password": "",
+        "userRole": "user"
     }
 ]

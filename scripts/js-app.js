@@ -154,8 +154,8 @@ function fnGetProperties(){
 		<td class="img-property">\
 		<div class="img"></div>\
 		</td>\
-		<td class="lbl-property" id="lbl-property-address">Address: <br><br> {{address}}</td>\
-		<td class="lbl-property" id="lbl-property-price">Price: <br><br>{{price}}</td>\
+		<td class="lbl-property" id="lbl-property-address">Address:<br><br>{{address}}</td>\
+		<td class="lbl-property" id="lbl-property-price">Price:<br><br>{{price}}</td>\
 		</tr>'
 
 		$("#property-table").empty();
@@ -181,8 +181,8 @@ function fnGetPropertiesAdmin(){
 		<td class="img-property">\
 		<div class="img"></div>\
 		</td>\
-		<td class="lbl-property" id="lbl-property-address">Address: <br><br> {{address}}</td>\
-		<td class="lbl-property" id="lbl-property-price">Price: <br><br>{{price}}</td>\
+		<td class="lbl-property" id="lbl-property-address">Address:<br><br>{{address}}</td>\
+		<td class="lbl-property" id="lbl-property-price">Price:<br><br>{{price}}</td>\
 		<td class="lbl-property"><span data-go-to="wdw-create-edit-property" class="fa fa-edit link"></span></td>\
 		<td class="lbl-property"><span class="fa fa-trash delete-property"></span></td>\
 		</tr>'
