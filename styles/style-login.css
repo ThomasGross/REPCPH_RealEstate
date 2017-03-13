@@ -38,8 +38,13 @@
 
 
 #login-headline h1 {
-    margin-bottom: 40px;
-    font-weight: 400;
+    font-size: 50px;
+   	font-weight: 400;
+}
+
+#login-headline p {
+    margin: 20px 20px 20px 20px;
+   	
 }
 
 .input-container{
@@ -51,17 +56,27 @@
 	margin-top: 10px;
 }
 
+.input-container input:focus::-webkit-input-placeholder 
+{
+	color: transparent;
+}
 
-.input-container span {
+
+.input-container .fa {
+	display: flex;
 	font-size: 22px;
-	margin: 0px 0px 0px 8px;
+	width: 40px;
+	height: 40px;
+	align-items: center;
+	justify-content: center;
 	flex: 1;
 }
 
 
 .input-container .txt-input {
 	width: 100%;
-	padding: 20px 20px 16px 0px;
+	padding-left: 8px;
+	height: 50px;
 	font-size: 14px;
 	font-weight: 100;
 	flex: 10;
@@ -69,27 +84,33 @@
 
 .input-option-remember{
 	display: flex;
-	padding: 20px 20px 16px 8px;
+	height: 50px;
 	flex: 1;
 	font-size: 14px;
 	flex-direction: row;
 	align-items: center;
+	padding-left: 14px;
 }
-.input-option-remember input{
-	margin-right: 20px;
-	padding: 20px 20px 16px 8px;
+
+.input-option-remember .input-checkbox {
+	cursor: pointer;
+	align-items: center;
+	margin-right: 23px;
 }
 
 .input-option-forgot{
+	display: flex;
 	font-size: 14px;
-	padding: 20px 20px 16px 8px;
+	height: 50px;
+	align-items: center;
+	padding-right: 8px;
 }
 
 .btn {
 	color: #ffffff;
 	font-size: 14px;
 	background: #007777;
-	padding: 10px 20px 10px 20px;
+	padding: 10px 0px 10px 0px;
 	margin-top: 10px;
 	border: 0px;
 	width: 450px;
@@ -97,12 +118,28 @@
 }
 
 .btn:hover {
+	cursor: pointer;
 	background: #006666;
 	text-decoration: none;
 }
 .btn:focus {
 	outline: none;
 }
+
+.input-option-forgot a{
+	cursor: pointer;
+}
+
+.input-option-forgot a{
+	cursor: pointer;
+}
+
+.input-option-forgot a:hover{
+	cursor: pointer;
+	border-bottom: 1px solid;
+}
+
+
 
 /*REP|CPH*/
 

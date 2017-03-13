@@ -42,7 +42,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>REP_CPH</title>
+	<title>Real Estate Partner CPH</title>
 
 	<link rel="stylesheet" type="text/css" href="styles/easydropdown.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">

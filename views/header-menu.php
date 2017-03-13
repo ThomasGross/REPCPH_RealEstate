@@ -14,10 +14,16 @@
 		<div class="link" data-go-to="wdw-properties">Properties</div>
 		<div class="link" data-go-to="wdw-users">Users</div>
 		';
+	} else if ($userSession['userRole'] == "user") {
+
+		$sMenuItems = 	'
+			<div class="link" data-go-to="wdw-properties">Properties</div>
+		';
+		
 	} else {
 
 		$sMenuItems = 	'
-		<div class="link" data-go-to="wdw-properties">Properties</div>
+		
 		';
 	}
 
@@ -36,9 +42,7 @@
 
 
 		<div class="navigation">
-
 			<?php echo $sMenuItems;?>
-
 
 		</div>
 

@@ -1,6 +1,5 @@
 <div id="wdw-login" class="wdw">
 
-
 	<div class="background-img">
 		<div class="background-layer">
 			<div id="login-content">
@@ -34,7 +33,9 @@
 						<p>Remember me</p>
 					</div>
 					<div>
-						<div class="input-option-forgot">Forgot password?</div>
+						<div class="input-option-forgot">
+							<a> Forgot password? </a>
+						</div>
 					</div>
 				</div>
 

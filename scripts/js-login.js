@@ -2,8 +2,6 @@
 
 function fnLoginUser(username, password) {
 
-	console.log("asd");
-
 	$.ajax({
 
 		"url":"/CMSV1/services/users/login.php",
@@ -50,7 +48,7 @@ function fnUserSignUp() {
 				title: "User created",
 				text: "Thanks for joining REP_CPH",
 				type: "success",
-				confirmButtonText: "OK"
+				confirmButtonText: "GO TO LOGIN"
 			},
 			function(){
 				location.reload();
@@ -64,6 +62,7 @@ function fnUserSignUp() {
 	});
 
 };
+
 
 
 

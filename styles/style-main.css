@@ -1,7 +1,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
 	font-family: 'Klavika', sans-serif;
 	font-weight: 100;
 }
@@ -15,10 +15,6 @@ body{
 .wdw{
 	width: 100vw;
 	height: 100vh;
-}
-
-h1{
-    font-weight: 400;
 }
 
 hr {
