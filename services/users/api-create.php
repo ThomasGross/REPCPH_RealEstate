@@ -5,7 +5,8 @@
 	$sUsername = $_POST['txt-user-username'];
 	$sEmail = $_POST['txt-user-email'];
 	$sPassword = $_POST['txt-user-password'];
-	$sUserRole = "superadmin";
+
+	
 
 	$ajUsers = [];
 
@@ -18,7 +19,13 @@
 		$ajUsers = json_decode( $sUsers ); // array with json
 		$sUserRole = "user";
 
+	} else {
+		$sUserRole = "superadmin";
 	}
+
+	if (isset($_POST['txt-user-role'])) {
+		$sUserRole = $_POST['txt-user-role'];
+	} 
 
 	// Create a string that looks like JSON
 	$sUser = '{}';

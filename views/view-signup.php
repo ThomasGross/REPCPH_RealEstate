@@ -28,13 +28,13 @@
 
 					<div class="input-container">
 						<span class="fa fa-lock"></span>
-						<input class="txt-input" id="txt-login-password" placeholder="Password" type="text" name="txt-user-password">
+						<input type="password" class="txt-input" id="txt-login-password" placeholder="Password" type="text" name="txt-user-password">
 					</div>
 					<hr>
 
 					<div class="input-container">
 						<span class="fa fa-repeat"></span>
-						<input class="txt-input" id="txt-login-confirmPassword" placeholder="Comfirm password" type="text">
+						<input type="password" class="txt-input" id="txt-login-confirmPassword" placeholder="Comfirm password" type="text">
 					</div>
 					<hr>
 

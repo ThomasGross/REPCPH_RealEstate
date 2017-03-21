@@ -47,14 +47,20 @@ $('#btn-login').on("click", function() {
 	var sPassword = $("#txt-login-password").val();
 
 	fnLoginUser(sUsername,sPassword);
+});
+
+$("#btn-logout").on('click', function(){
+	fnUserLogOut()
 
 });
+
 
 
 $("#btn-create-account").on('click', function(){
-	var jsStatus = fnUserSignUp();
+	fnUserSignUp();
 
 });
+
 
 
 $(document).on("click", ".fa-trash", function(){
@@ -162,9 +168,9 @@ function fnGetProperties(){
 		for( var i = 0 ; i < jData.length ; i++ ){
 			var sPropertyTemplate = sProperty;
 
-			sPropertyTemplate = sPropertyTemplate.replace( "{{id}}" , jData[i].sUniqueId );
-			sPropertyTemplate = sPropertyTemplate.replace( "{{address}}" , jData[i].sAddress );
-			sPropertyTemplate = sPropertyTemplate.replace( "{{price}}" , jData[i].iPrice );
+			sPropertyTemplate = sPropertyTemplate.replace( "{{id}}" , jData[i].id );
+			sPropertyTemplate = sPropertyTemplate.replace( "{{address}}" , jData[i].street );
+			sPropertyTemplate = sPropertyTemplate.replace( "{{price}}" , jData[i].price );
 			$("#property-table").append( sPropertyTemplate );
 			
 		}
@@ -177,7 +183,10 @@ function fnGetPropertiesAdmin(){
 	var sUrl = "/CMSV1/services/properties/api-get.php";
 	$.getJSON( sUrl , function( jData ){
 
-		var sProperty = '	    <tr class="row-property">\
+
+	}).done(function(jData){
+
+		var sProperty = '<tr class="row-property">\
 		<td class="img-property">\
 		<div class="img"></div>\
 		</td>\
@@ -191,12 +200,15 @@ function fnGetPropertiesAdmin(){
 		for( var i = 0 ; i < jData.length ; i++ ){
 			var sPropertyTemplate = sProperty;
 
-			sPropertyTemplate = sPropertyTemplate.replace( "{{id}}" , jData[i].sUniqueId );
-			sPropertyTemplate = sPropertyTemplate.replace( "{{address}}" , jData[i].sAddress );
-			sPropertyTemplate = sPropertyTemplate.replace( "{{price}}" , jData[i].iPrice );
+			sPropertyTemplate = sPropertyTemplate.replace( "{{id}}" , jData[i].id );
+			sPropertyTemplate = sPropertyTemplate.replace( "{{address}}" , jData[i].street );
+			sPropertyTemplate = sPropertyTemplate.replace( "{{price}}" , jData[i].price );
 			$("#property-table-admin").append( sPropertyTemplate );
 			
 		}
+
+	}).fail(function(jData){
+		console.log(jData);
 	});
 }
 

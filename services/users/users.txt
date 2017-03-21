@@ -1,30 +1,23 @@
 [
     {
-        "id": "58c13a10ss3f727",
+        "id": "58c6ee9531801",
         "username": "Thomas",
-        "email": "thomas@gmail.com",
+        "email": "thomas",
         "password": "thomas",
         "userRole": "superadmin"
     },
     {
-        "id": "58c29ab32faf2",
-        "username": "Kim",
-        "email": "Kim@gmail.com",
-        "password": "kim",
-        "userRole": "superadmin"
-    },
-    {
-        "id": "58c6d01968476",
-        "username": "",
-        "email": "",
-        "password": "",
+        "id": "58c8166238d1b",
+        "username": "lol",
+        "email": "lol",
+        "password": "lol",
         "userRole": "user"
     },
     {
-        "id": "58c6da94cfb3f",
+        "id": "58d07083539ca",
         "username": "",
         "email": "",
         "password": "",
-        "userRole": "user"
+        "userRole": "admin"
     }
 ]

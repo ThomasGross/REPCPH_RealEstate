@@ -1,5 +1,4 @@
-
-<div id="wdw-properties-admin" class="wdw">
+<div id="wdw-property-map" class="wdw">
 
 	<div class="properties-container">
 
@@ -80,29 +79,93 @@
 			<div class="property-table-navigation">
 				<div class="box box-property-nav">
 					<div class="btn-group btn-group-property-nav">
-						<button type="button" class="btn btn-active link" data-go-to="wdw-properties-admin">Liste</button>
+						<button type="button" class="btn link" data-go-to="wdw-properties-admin">Liste</button>
 						<button type="button" class="btn">Galleri</button>
-						<button type="button" class="btn link" data-go-to="wdw-property-map">Kort</button>
-					</div>
-
-					<div class="dropdown-property-per-page">
-						<div class="dropdown-decript">Vis pr. side</div>
-						<select class="dropdown dropdown-property-per-page" name="txt-user-role">
-							<option value="2600">30</option>
-							<option value="admin">60</option>
-							<option value="superadmin">90</option>
-						</select>
-					</div>
-
-					<div class="page-navigation btn-group">
-						<button type="button" class="btn"><</button>
-						<div class="page-navigation-info">side * af *</div>
-						<button type="button" class="btn">></button>
+						<button type="button" class="btn link btn-active" data-go-to="wdw-property-map">Kort</button>
 					</div>
 
 				</div>
 			</div>
-			<table id="property-table-admin"></table>
+			<div id="property-search-map">
+
+
+			</div>
+			
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+			<script>
+
+				$('[data-go-to="wdw-property-map"]').click(function(){
+
+					loadScript()
+					
+				});
+
+				var bScriptLoad = 0;
+
+				function loadScript() {
+
+					if (bScriptLoad == 0) {
+						bScriptLoad = 1;
+						var script = document.createElement('script');
+						script.setAttribute("type","text/javascript");
+						script.setAttribute("src","http://maps.google.com/maps/api/js?key=AIzaSyBtrjAjyq_r69KeQzH_TETRAa41hm1T5IM&callback=initializeMap");
+						document.body.appendChild(script);
+					} 
+				}
+
+				function initializeMap() {
+
+					var myLatLng = {lat: 55.951410, lng: 10.480957};
+					var mapCanvas = document.getElementById('property-search-map');
+					var mapOptions =  {
+						zoom: 7,
+						center: myLatLng
+					}
+
+					var map = new google.maps.Map(mapCanvas, mapOptions);
+
+
+					var sUrl = "/CMSV1/services/properties/api-get.php";
+					$.getJSON( sUrl , function( jData ){
+
+						for( var i = 0 ; i < jData.length ; i++ ){
+
+							
+
+							var myLatLng = {lat: parseFloat(jData[i].lat), lng: parseFloat(jData[i].lng)};
+
+							var infowindow = new google.maps.InfoWindow({
+								content: "loading..."
+							});
+
+							var marker = new google.maps.Marker({
+								position: myLatLng,
+								map: map,
+								content: '<h1>'+jData[i].street+'</h1>'
+							});
+
+							google.maps.event.addListener(marker, 'click', function () {
+									// where I have added .html to the marker object.
+									infowindow.setContent(this.content);
+									infowindow.open(map, this);
+							});
+							
+							
+						}
+					});
+
+				}
+
+
+
+
+
+			</script>
+
+
 		</div>
 	</div>
+
+
 </div>

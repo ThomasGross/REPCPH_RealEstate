@@ -58,11 +58,23 @@ function fnUserSignUp() {
 		}
 				
 	}).fail( function(){
-
+		console.log("error");
 	});
 
 };
 
+function fnUserLogOut(){
+
+	$.ajax({
+		type: 'GET',
+		url: 'services/users/logout.php',
+	}).done(function(){
+		location.reload();
+	}).fail(function(){
+
+	});
+
+}
 
 
 

@@ -1,3 +1,4 @@
+
 <div id="wdw-login" class="wdw">
 
 	<div class="background-img">
@@ -23,7 +24,7 @@
 
 				<div class="input-container">
 					<span class="fa fa-lock"></span>
-					<input class="txt-input" id="txt-login-password" placeholder="Password" type="text">
+					<input type="password" class="txt-input" id="txt-login-password" placeholder="Password" type="text">
 				</div>
 				<hr>
 
@@ -45,3 +46,4 @@
 		</div>
 	</div>
 </div>
+
