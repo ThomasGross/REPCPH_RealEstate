@@ -50,18 +50,20 @@
 .logo{
 	display: flex;
 	justify-content: flex-start;
-	flex: 1;
 	height: 100%;
     align-items: center;
+    padding: 0px 8px;
+    color: white;
+}
 
+.logo:hover{
+	background-color: #ededed;
+	cursor: pointer;
+	color: #ededed;
 }
 
 #logo1 {
 	color: #E81600;
-}
-
-#logo2 {
-	color: white;
 }
 
 #logo3 {

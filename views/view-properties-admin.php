@@ -74,6 +74,11 @@
 
 				</div>
 			</form>
+
+			<div class="filter-head">Tilføj ny egendom</div>
+			<div class="filter-body">
+				<button type="button" class="filters-search-button full-width link" data-go-to="wdw-create-edit-property">Opret</button>
+			</div>
 		</div>
 		<div class="property-table-container">
 			<div class="property-table-header">Search Results</div>

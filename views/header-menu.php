@@ -35,7 +35,7 @@ if (isset($_SESSION['userSession'])) {
 
 <div class="header-content">
 
-	<div class="logo">
+	<div class="logo link" data-go-to="wdw-frontpage">
 		<h1 id="logo1">REP</h1>
 		<h1 id="logo2">|</h1>
 		<h1 id="logo3">CPH</h1>

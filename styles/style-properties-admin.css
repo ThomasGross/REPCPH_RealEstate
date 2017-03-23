@@ -1,12 +1,11 @@
-
-
 .properties-container{
 	display: flex;
-	height: 100%;
+	
 }
 
 .search-options-container{
-	flex: 2;
+	flex-basis: 30%;
+	flex-grow: 1;
 	margin-right: 10px;
 	margin-top: 20px;
 	background-color: #f7f7f7;
@@ -14,7 +13,7 @@
 	-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-	height: inherit;
+	height: 100%;
 }
 
 .frm-property-search{
@@ -26,6 +25,7 @@
 	margin-top: 10px;
 	margin-bottom: 3px;
 	font-size: 10px;
+	color: #676464;
 }
 
 .filter-head {
@@ -109,6 +109,10 @@
 	border-radius: 3px;
 }
 
+.full-width {
+	width: 100%;
+}
+
 .filters-text-input {
 	flex: 1;
 	font-size: 12px;
@@ -179,7 +183,7 @@
 
 
 .property-table-container {
-	width: 70%;
+	flex-basis: 70%;
 	margin-top: 20px;
 }
 
@@ -244,4 +248,108 @@
 #property-table-admin .lbl-property{
 	text-align: center;
 }
+
+
+///// CREATE EDIT PROPERTY
+
+.property-create-edit{
+	display: flex;
+	flex-direction: column;
+}
+
+.create-edit-container {
+	flex-basis: 30%;
+	margin-right: 10px;
+	margin-top: 20px;
+	background-color: #f7f7f7;
+	margin-bottom: 10px;
+	-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	height: inherit;
+}
+
+.property-create-edit-contet {
+	flex-basis: 70%;
+	margin-top: 20px;
+}
+
+
+.create-edit-container .filters-text-input{
+	margin: 0;
+}
+
+.create-edit-container .dropdown{
+	height: 38px;
+	align-items: center;
+}
+
+.add-img-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+}
+.add-img-container .add-image-placeholder{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	height: 250px;
+	width: 260px;
+	background-color: #f7f7f7;
+	border-radius: 5px;
+	background-size: cover;
+	background-position: center;
+	
+}
+
+.add-img-container .add-image-placeholder:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.add-image-placeholder .add-symbol{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.add-image-placeholder .add-symbol-1{
+	position: absolute;
+	background-color: #007777;
+	height: 20px;
+	width: 60px;
+	border-radius: 3px;
+	z-index: 2;
+}
+
+.add-image-placeholder .add-symbol-2{
+	position: absolute;
+	background-color: #007777;
+	height: 60px;
+	width: 20px;
+	border-radius: 3px;
+	z-index: 2;
+}
+
+.add-image-placeholder .file-input{
+	display: none;
+}
+
+.add-image-placeholder .img-preview{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
