@@ -1,43 +1,13 @@
 [
     {
-        "id"        : "100000",
-        "street"    : "Torpegårdsvej 73",
-        "city"      : "Jyllinge",
-        "state"     : "Sjælland",
-        "zipCode"   : "4040",
-        "price"     : "10.000.000",
-        "lat"       : "55.31222216970851",
-        "lng"       : "10.5266738197085"
-    },
-    {
-        "id"        : "100001",
-        "street"    : "Nørrebrovænget 16",
-        "city"      : "København K",
-        "state"     : "Sjælland",
-        "zipCode"   : "1102",
-        "price"     : "10.000.000",
-        "lat"       : "55.69553688029149",
-        "lng"       : "12.5419563802915"
-    },
-    {
-        "id"        : "100002",
-        "street"    : "Toftvej 76",
-        "city"      : "København K",
-        "state"     : "Sjælland",
-        "zipCode"   : "1206",
-        "price"     : "10.000.000",
-        "lat"       : "56.1139337197085",
-        "lng"       : "8.292347119708499"
-    },
-    {
-        "id"        : "100003",
-        "street"    : "Nymarksgyden 14",
-        "city"      : "Hørning",
-        "state"     : "Midtjylland",
-        "zipCode"   : "8362",
-        "price"     : "10.000.000",
-        "lat"       : "55.31284691970851",
-        "lng"       : "10.4096092197085"
+        "id": "58d51846bf30a",
+        "street": "Torpegårdsvej 73",
+        "city": "Jyllinge",
+        "region": "Sjælland",
+        "zipcode": "4400",
+        "price": "1000000000",
+        "long": "55.69553688029149",
+        "lat": "12.5419563802915",
+        "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58d51846bf30a_classy-responsive-login-form.jpg"
     }
-
 ]

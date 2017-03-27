@@ -138,7 +138,7 @@
 
 							
 
-							var myLatLng = {lat: parseFloat(jData[i].lat), lng: parseFloat(jData[i].lng)};
+							var myLatLng = {lat: parseFloat(jData[i].lat), lng: parseFloat(jData[i].long)};
 
 							var infowindow = new google.maps.InfoWindow({
 								content: "loading..."

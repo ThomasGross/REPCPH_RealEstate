@@ -158,7 +158,7 @@ function fnGetProperties(){
 
 		var sProperty = '	    <tr class="row-property">\
 		<td class="img-property">\
-		<div class="img"></div>\
+		<div class="img"><img src={{image}}></div>\
 		</td>\
 		<td class="lbl-property" id="lbl-property-address">Address:<br><br>{{address}}</td>\
 		<td class="lbl-property" id="lbl-property-price">Price:<br><br>{{price}}</td>\
@@ -171,6 +171,7 @@ function fnGetProperties(){
 			sPropertyTemplate = sPropertyTemplate.replace( "{{id}}" , jData[i].id );
 			sPropertyTemplate = sPropertyTemplate.replace( "{{address}}" , jData[i].street );
 			sPropertyTemplate = sPropertyTemplate.replace( "{{price}}" , jData[i].price );
+			sPropertyTemplate = sPropertyTemplate.replace( "{{image}}" , jData[i].imageUrl );
 			$("#property-table").append( sPropertyTemplate );
 			
 		}
@@ -188,7 +189,7 @@ function fnGetPropertiesAdmin(){
 
 		var sProperty = '<tr class="row-property">\
 		<td class="img-property">\
-		<div class="img"></div>\
+		<div class="img"><img src={{image}}></div>\
 		</td>\
 		<td class="lbl-property" id="lbl-property-address">Address:<br><br>{{address}}</td>\
 		<td class="lbl-property" id="lbl-property-price">Price:<br><br>{{price}}</td>\
@@ -203,6 +204,11 @@ function fnGetPropertiesAdmin(){
 			sPropertyTemplate = sPropertyTemplate.replace( "{{id}}" , jData[i].id );
 			sPropertyTemplate = sPropertyTemplate.replace( "{{address}}" , jData[i].street );
 			sPropertyTemplate = sPropertyTemplate.replace( "{{price}}" , jData[i].price );
+
+			if (jData[i].imageUrl != undefined ) {
+				sPropertyTemplate = sPropertyTemplate.replace( "{{image}}" , jData[i].imageUrl );
+			}
+			
 			$("#property-table-admin").append( sPropertyTemplate );
 			
 		}
@@ -279,7 +285,105 @@ function fnDeleteUser(sUserId){
 
 
 //////////////////////////////////////////////
+//Add properties
 //////////////////////////////////////////////
+
+
+
+	var iElementNumber = 0;
+
+	$('.add-image-placeholder').on('click', function(){
+		$(this).children('.file-input')[0].click();
+	});
+	
+
+	$(document).on('change' , '[type="file"]' , function(){
+		
+
+
+		console.log(iElementNumber);
+
+		var preview = new FileReader();
+		preview.readAsDataURL( this.files[0] );
+		var self = this;
+		preview.onload = function(event){
+			$(self).parent().css("background-image", "url('" + event.target.result + "')" ); 
+			$(self).siblings(".img-preview").attr("src", event.target.result);
+		}
+
+		if (iElementNumber >= 2) {
+			iElementNumber++
+			fnCreateImageInput();
+		} else {
+			iElementNumber++
+		}
+
+		
+	});
+
+
+	function fnCreateImageInput(){
+
+		var sDiv = '<div class="add-image-placeholder">\
+		<img class="img-preview" src="">\
+		<div class="add-symbol fa fa-plus"></div>\
+		<input class="file-input" type="file" name="file-'+iElementNumber+'">\
+	</div>';
+
+
+	$(sDiv).appendTo("#add-img").each(function () {
+		$('.add-image-placeholder').on('click', function(){
+			$(this).children('.file-input')[0].click();
+		});
+	});
+}
+
+
+
+var sUrl = "/CMSV1/services/properties/api-get-zipcodes.php";
+$.getJSON( sUrl , function( ajData ){
+
+	var sUserTemplate= '<option value="{{zipcode1}}">{{zipcode2}} {{name}}</option>'
+
+	for( var i = 0 ; i < ajData.length ; i++ ){
+
+		userTemplate = sUserTemplate
+
+		userTemplate = userTemplate.replace( "{{zipcode1}}" , ajData[i].zipcode );
+		userTemplate = userTemplate.replace( "{{zipcode2}}" , ajData[i].zipcode );
+		userTemplate = userTemplate.replace( "{{name}}" , ajData[i].name );
+
+		$("#zipcode-dropdown").append( userTemplate );	
+	}
+});
+
+$("#btn-create-edit-property").click(function(){
+	$("#frm-create-edit-property").trigger('submit');
+});
+
+$("#frm-create-edit-property").on('submit', function(e){
+
+	e.preventDefault();
+
+		var sUrl = "";
+
+		sUrl = "/CMSV1/services/properties/api-create.php";
+
+		$.ajax({
+			"url": sUrl,
+			"type":"post",
+			"data": new FormData(this),
+			"contentType":false,
+			"processData":false,
+			"cache":false
+
+		}).done( function( data ){
+			console.log(data);
+		}).fail( function( data ){
+			console.log(data);
+		});
+
+});
 
 
 

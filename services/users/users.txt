@@ -33,5 +33,12 @@
         "email": "",
         "password": "",
         "userRole": "user"
+    },
+    {
+        "id": "58d44e3c38932",
+        "username": "",
+        "email": "",
+        "password": "",
+        "userRole": "user"
     }
 ]

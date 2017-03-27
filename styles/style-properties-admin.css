@@ -96,7 +96,7 @@
 .input-fluid{
 	display: flex;
 	align-items: center;
-	
+	flex-wrap: wrap;
 
 }
 
@@ -231,6 +231,11 @@
 	height: 200px;
 }
 
+.img-property img {
+	width: 300px;
+	height: 200px;
+}
+
 #property-table-admin .td {
 	height: 200px;
 }
@@ -252,6 +257,14 @@
 
 ///// CREATE EDIT PROPERTY
 
+.create-edit-wrapper{
+	display: flex;
+}
+
+form#frm-create-edit-property {
+	display: flex;
+}
+
 .property-create-edit{
 	display: flex;
 	flex-direction: column;
@@ -266,7 +279,7 @@
 	-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-	height: inherit;
+	height: 100%;
 }
 
 .property-create-edit-contet {
@@ -287,19 +300,21 @@
 .add-img-container{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	/*justify-content: space-between;*/
+
 
 }
 .add-img-container .add-image-placeholder{
 	display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
 	height: 250px;
 	width: 260px;
 	background-color: #f7f7f7;
 	border-radius: 5px;
 	background-size: cover;
 	background-position: center;
+	margin: 4px 4px;
 	
 }
 
@@ -312,24 +327,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.add-image-placeholder .add-symbol-1{
-	position: absolute;
-	background-color: #007777;
-	height: 20px;
-	width: 60px;
-	border-radius: 3px;
-	z-index: 2;
-}
-
-.add-image-placeholder .add-symbol-2{
-	position: absolute;
-	background-color: #007777;
-	height: 60px;
-	width: 20px;
-	border-radius: 3px;
-	z-index: 2;
+	color: #007777;
+	font-size: 5em;
 }
 
 .add-image-placeholder .file-input{
@@ -341,7 +340,9 @@
 }
 
 
-
+.dropdown-property-per-page span.selected {
+	padding: 9px 8px;
+}
 
 
 
