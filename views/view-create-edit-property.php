@@ -3,9 +3,11 @@
 
 	<div class="create-edit-wrapper">
 
-		<form id="frm-create-edit-property" method="post" enctype="multipart/form-data">
+		<form id="frm-create-edit-property" method="post">
 			<div class="create-edit-container">
 				<div class="property-create-edit">
+
+					<input type="hidden" id="txt-create-edit-property-id" name="txt-property-id" />
 
 					<div class="filters-title">Opret/Rediger Bolig</div>
 
@@ -55,18 +57,18 @@
 					<div class="filter-body">
 						<div class="search-desc">Indtast vej</div>
 						<div class="input-fluid">
-							<input type="text" class="filters-text-input" placeholder="Indtast vej her.." name="txt-property-street">
+							<input type="text" id="txt-create-edit-property-road" class="filters-text-input" placeholder="Indtast vej her.." name="txt-property-street">
 						</div>
 						<div class="search-desc">Indtast by</div>
 						<div class="input-fluid">
-							<input type="text" class="filters-text-input" placeholder="Indtast by her.." name="txt-property-city">
+							<input type="text" id="txt-create-edit-property-city" class="filters-text-input" placeholder="Indtast by her.." name="txt-property-city">
 						</div>
 						<div class="search-desc">Indtast kommune</div>
 						<div class="input-fluid">
-							<input type="text" class="filters-text-input" placeholder="Indtast kommune her.." name="txt-property-region">
+							<input type="text" id="txt-create-edit-property-region" class="filters-text-input" placeholder="Indtast kommune her.." name="txt-property-region">
 						</div>
-						<div class="search-desc">Vælg postnummer</div>
-						<select class="dropdown region-dropdown" id="zipcode-dropdown" name="txt-property-zipcode">
+						<div  class="search-desc">Vælg postnummer</div>
+						<select id="select-create-edit-property-zipcode" class="dropdown region-dropdown zipcode-dropdown" name="txt-property-zipcode">
 							<option value="" disabled selected>Vælg postnummer her..</option>
 
 						</select>
@@ -77,7 +79,7 @@
 					<div class="filter-body">
 						<div class="search-desc">Indtast pris</div>
 						<div class="input-fluid">
-							<input type="text" class="filters-text-input" placeholder="Enter search here..." name="txt-property-price">
+							<input id="txt-create-edit-property-price" type="text" class="filters-text-input" placeholder="Enter search here..." name="txt-property-price">
 						</div>
 					</div>
 
@@ -86,7 +88,7 @@
 
 						<div class="input-fluid">
 							<button data-go-to="wdw-properties-admin" type="button" class="btn link filters-search-button"> Back</button>
-							<button type="button" id="btn-create-edit-property" class="btn filters-search-button">Submit</button>
+							<button data-go-to="wdw-properties-admin" type="button" id="btn-create-edit-property" class="btn filters-search-button link">Submit</button>
 						</div>
 					</div>
 
@@ -115,11 +117,11 @@
 				<div class="filter-body">
 					<div class="search-desc">Indtast længegrad</div>
 					<div class="input-fluid">
-						<input type="text" class="filters-text-input" placeholder="Indtast længegrad her.." name="txt-property-long">
+						<input id="txt-create-edit-property-long" type="text" class="filters-text-input" placeholder="Indtast længegrad her.." name="txt-property-long">
 					</div>
 					<div class="search-desc">Indtast breddegrad</div>
 					<div class="input-fluid">
-						<input type="text" class="filters-text-input" placeholder="Indtast breddegrad her.." name="txt-property-lat">
+						<input id="txt-create-edit-property-lat" type="text" class="filters-text-input" placeholder="Indtast breddegrad her.." name="txt-property-lat">
 					</div>
 				</div>
 
@@ -130,14 +132,3 @@
 </div>
 
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-
-<script>
-
-
-
-
-
-</script>

@@ -30,7 +30,6 @@ if (isset($_SESSION['userSession'])) {
 	<link rel="stylesheet" type="text/css" href="styles/style-properties.css">
 	<link rel="stylesheet" type="text/css" href="styles/style-users.css">
 	<link rel="stylesheet" type="text/css" href="styles/style-properties-admin.css">
-	<link rel="stylesheet" type="text/css" href="styles/style-properties-create-edit.css">
 	<link rel="stylesheet" type="text/css" href="styles/style-property-map.css">
 
 	<link rel="stylesheet" type="text/css" href="styles/sweetalert.css">

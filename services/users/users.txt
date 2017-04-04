@@ -1,44 +1,30 @@
 [
     {
-        "id": "58c6ee9531801",
+        "id": "1",
         "username": "Thomas",
-        "email": "thomas",
+        "email": "lol",
         "password": "thomas",
         "userRole": "superadmin"
     },
     {
-        "id": "58c8166238d1b",
-        "username": "lol",
-        "email": "lol",
-        "password": "lol",
-        "userRole": "user"
-    },
-    {
-        "id": "58d07083539ca",
-        "username": "",
-        "email": "",
-        "password": "",
+        "id": "58dc2e2776b3e",
+        "username": "ads",
+        "email": "123",
+        "password": "123",
         "userRole": "admin"
     },
     {
-        "id": "58d082b83d6c1",
-        "username": "a",
-        "email": "",
-        "password": "",
-        "userRole": "user"
+        "id": "58dc351fc0d53",
+        "username": "asdasdasd",
+        "email": "asd22222",
+        "password": "ads11111111",
+        "userRole": "admin"
     },
     {
-        "id": "58d38ecbd166a",
+        "id": "58e2be3648242",
         "username": "",
-        "email": "",
-        "password": "",
-        "userRole": "user"
-    },
-    {
-        "id": "58d44e3c38932",
-        "username": "",
-        "email": "",
-        "password": "",
-        "userRole": "user"
+        "email": "ads",
+        "password": "ads",
+        "userRole": "admin"
     }
 ]

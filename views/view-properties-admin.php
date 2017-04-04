@@ -65,11 +65,8 @@
 				<div class="filter-body">
 					<div class="headline">Tilføj nyt postnummer</div>
 
-					<select class="dropdown region-dropdown" name="txt-user-role">
+					<select class="dropdown region-dropdown zipcode-dropdown" name="txt-user-role">
 						<option value="" disabled selected>Select your option...</option>
-						<option value="2600">2600</option>
-						<option value="admin">Admin</option>
-						<option value="superadmin">Superadmin</option>
 					</select>
 
 				</div>

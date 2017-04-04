@@ -40,7 +40,7 @@
 	// save the data in the file
 	file_put_contents( $sFileName , $sajUsers );
 
-	// echo '{"status":"ok"}';
+	echo '{"status":"ok"}';
 	// echo '{"status":"error","id":"001","message":"file corrupted"}';
 	
 

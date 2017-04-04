@@ -6,7 +6,7 @@
 
 			<h1>USER LIST</h1>
 
-			<span data-go-to="wdw-create-edit-user" class="fa fa-plus link"> Create new</span>
+			<span data-go-to="wdw-create-edit-user" id="btn-create-user" class="fa fa-plus link"> Create new</span>
 			
 			<table class="user-table" id="users-table">
 

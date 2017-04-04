@@ -1,47 +1,48 @@
 
+// LOGIN
 
-function fnLoginUser(username, password) {
+$('#btn-login').on("click", function() {
+	
+	var sUsername = $("#txt-login-username").val();
+	var sPassword = $("#txt-login-password").val();
 
-	$.ajax({
-
-		"url":"/CMSV1/services/users/login.php",
-		"method":"post",
-		"data":({"username": username , "password": password}),
-		"cache":false,
-		"dataType":"json"
-
-	}).done( function( jData ){
-
+	fnLoginUser(sUsername,sPassword, function(jData){
+		
 		if (jData.status == "ok") {
 			// TOO DOO SWEET ALERT success
 			location.reload();
 		} else {
-
 			swal({
 				title: "Incorrect username or password",
 				text: "Please try again..",
 				type: "error",
 				confirmButtonText: "OK"
-			})
-		}
+			}, function(){
+				fnSetupDesktopNitification();
 				
-	}).fail( function(){
+			});
+		}
+	});
+});
 
+// LOGOUT
+
+$("#btn-logout").on('click', function(){
+	
+	fnUserLogOut(function( jData ){
+		if (jData.status == "ok") {
+			location.reload();
+		}
 	});
 
-};
+});
 
-function fnUserSignUp() {
 
-	$.ajax({
+// SIGNUP
 
-		"url":"services/users/api-create.php",
-		"method":"post",
-		"data": $("#frm-user-create").serialize(),
-		"cache":false,
-		"dataType":"json"
-
-	}).done( function( jData ){
+$("#btn-create-account").on('click', function(){
+	var jFormData = $("#frm-user-create").serialize();
+	fnCreateUser( jFormData, function(jData){
 
 		if (jData.status == "ok") {
 			swal({
@@ -53,29 +54,8 @@ function fnUserSignUp() {
 			function(){
 				location.reload();
 			});
-		} else {
-			// TOO DOO SWEET ALERT error
 		}
-				
-	}).fail( function(){
-		console.log("error");
 	});
-
-};
-
-function fnUserLogOut(){
-
-	$.ajax({
-		type: 'GET',
-		url: 'services/users/logout.php',
-	}).done(function(){
-		location.reload();
-	}).fail(function(){
-
-	});
-
-}
-
-
+});
 
 

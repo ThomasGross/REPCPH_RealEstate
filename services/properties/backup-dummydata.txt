@@ -1,47 +1,61 @@
 [
     {
-        "id"        : "100000",
-        "street"    : "Torpegårdsvej 73",
-        "city"      : "Jyllinge",
-        "state"     : "Sjælland",
-        "zipCode"   : "4040",
-        "residentTypes": "Villa",
-        "price"     : "10.000.000",
-        "lat"       : "55.31222216970851",
-        "lng"       : "10.5266738197085"
+        "id": "58da3d59369e5",
+        "street": "asda",
+        "city": "adsas",
+        "region": "asd",
+        "zipcode": "1500",
+        "price": "100000",
+        "long": "100000",
+        "lat": "1000000",
+        "images": [
+            {
+                "imageId": 0,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58da3d59369e5\/classy-responsive-login-form.jpg",
+                "imageName": "classy-responsive-login-form.jpg"
+            },
+            {
+                "imageId": 1,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58da3d59369e5\/IMG_2187.JPG",
+                "imageName": "IMG_2187.JPG"
+            },
+            {
+                "imageId": 2,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58da3d59369e5\/IMG_2186.JPG",
+                "imageName": "IMG_2186.JPG"
+            }
+        ]
     },
     {
-        "id"        : "100001",
-        "street"    : "Nørrebrovænget 16",
-        "city"      : "København K",
-        "state"     : "Sjælland",
-        "zipCode"   : "1102",
-        "residentTypes": "Villa",
-        "price"     : "10.000.000",
-        "lat"       : "55.69553688029149",
-        "lng"       : "12.5419563802915"
-    },
-    {
-        "id"        : "100002",
-        "street"    : "Toftvej 76",
-        "city"      : "København K",
-        "state"     : "Sjælland",
-        "zipCode"   : "1206",
-        "residentTypes": "Villa",
-        "price"     : "10.000.000",
-        "lat"       : "56.1139337197085",
-        "lng"       : "8.292347119708499"
-    },
-    {
-        "id"        : "100003",
-        "street"    : "Nymarksgyden 14",
-        "city"      : "Hørning",
-        "state"     : "Midtjylland",
-        "zipCode"   : "8362",
-        "residentTypes": "Villa",
-        "price"     : "10.000.000",
-        "lat"       : "55.31284691970851",
-        "lng"       : "10.4096092197085"
+        "id": "58da3fc24ed9b",
+        "street": "asd",
+        "city": "asd",
+        "region": "asd",
+        "zipcode": "1800",
+        "price": "123123123",
+        "long": "1231231231",
+        "lat": "123123123123",
+        "images": [
+            {
+                "imageId": 0,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58da3fc24ed9b\/IMG_2187.JPG",
+                "imageName": "IMG_2187.JPG"
+            },
+            {
+                "imageId": 1,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58da3fc24ed9b\/classy-responsive-login-form.jpg",
+                "imageName": "classy-responsive-login-form.jpg"
+            },
+            {
+                "imageId": 2,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58da3fc24ed9b\/16708589_10155057509403734_7321214270970929163_n.jpg",
+                "imageName": "16708589_10155057509403734_7321214270970929163_n.jpg"
+            },
+            {
+                "imageId": 3,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58da3fc24ed9b\/IMG_2186.JPG",
+                "imageName": "IMG_2186.JPG"
+            }
+        ]
     }
-
 ]

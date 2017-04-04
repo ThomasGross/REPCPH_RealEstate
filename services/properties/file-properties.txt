@@ -1,13 +1,70 @@
 [
     {
-        "id": "58d51846bf30a",
-        "street": "Torpegårdsvej 73",
-        "city": "Jyllinge",
-        "region": "Sjælland",
-        "zipcode": "4400",
-        "price": "1000000000",
-        "long": "55.69553688029149",
-        "lat": "12.5419563802915",
-        "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58d51846bf30a_classy-responsive-login-form.jpg"
+        "id": "58e390ef9fade",
+        "street": "123",
+        "city": "123",
+        "region": "132",
+        "zipcode": "1000",
+        "price": "123",
+        "long": "123",
+        "lat": "12312123",
+        "images": [
+            {
+                "imageId": 0,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58e390ef9fade\/classy-responsive-login-form.jpg",
+                "imageName": "classy-responsive-login-form.jpg"
+            }
+        ]
+    },
+    {
+        "id": "58e3910dccbe9",
+        "street": "12",
+        "city": "213",
+        "region": "312",
+        "zipcode": "1500",
+        "price": "123",
+        "long": "12312312",
+        "lat": "312",
+        "images": [
+            {
+                "imageId": 0,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58e3910dccbe9\/classy-responsive-login-form.jpg",
+                "imageName": "classy-responsive-login-form.jpg"
+            }
+        ]
+    },
+    {
+        "id": "58e3914f88e9f",
+        "street": "123",
+        "city": "123",
+        "region": "123",
+        "zipcode": "1800",
+        "price": "123",
+        "long": "132",
+        "lat": "132",
+        "images": [
+            {
+                "imageId": 0,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58e3914f88e9f\/classy-responsive-login-form.jpg",
+                "imageName": "classy-responsive-login-form.jpg"
+            }
+        ]
+    },
+    {
+        "id": "58e3915c82e7e",
+        "street": "123",
+        "city": "123",
+        "region": "123",
+        "zipcode": "1800",
+        "price": "123",
+        "long": "123123",
+        "lat": "132",
+        "images": [
+            {
+                "imageId": 0,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58e3915c82e7e\/classy-responsive-login-form.jpg",
+                "imageName": "classy-responsive-login-form.jpg"
+            }
+        ]
     }
 ]

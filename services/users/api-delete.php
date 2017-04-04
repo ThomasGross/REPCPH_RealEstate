@@ -26,4 +26,6 @@
 	// save the data in the file
 	file_put_contents( $sFileName , $sajUsers );
 
+	echo '{"status":"ok"}';
+
 ?>
