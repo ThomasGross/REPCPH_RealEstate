@@ -55,21 +55,28 @@
 
 					<div class="filter-head">Beliggenhed</div>
 					<div class="filter-body">
-						<div class="search-desc">Indtast vej</div>
+						<div class="search-desc">Indtast vej, husnummer og etage</div>
 						<div class="input-fluid">
-							<input type="text" id="txt-create-edit-property-road" class="filters-text-input" placeholder="Indtast vej her.." name="txt-property-street">
+							<input type="text" id="txt-create-edit-property-road" class="filters-text-input validate street" placeholder="Indtast vej, husnummer og etage her.." name="txt-property-street">
 						</div>
 						<div class="search-desc">Indtast by</div>
 						<div class="input-fluid">
-							<input type="text" id="txt-create-edit-property-city" class="filters-text-input" placeholder="Indtast by her.." name="txt-property-city">
+							<input type="text" id="txt-create-edit-property-city" class="filters-text-input validate city" placeholder="Indtast by her.." name="txt-property-city">
 						</div>
 						<div class="search-desc">Indtast kommune</div>
 						<div class="input-fluid">
-							<input type="text" id="txt-create-edit-property-region" class="filters-text-input" placeholder="Indtast kommune her.." name="txt-property-region">
+							<input type="text" id="txt-create-edit-property-region" class="filters-text-input municipality validate" placeholder="Indtast kommune her.." name="txt-property-municipality">
 						</div>
+
 						<div  class="search-desc">Vælg postnummer</div>
-						<select id="select-create-edit-property-zipcode" class="dropdown region-dropdown zipcode-dropdown" name="txt-property-zipcode">
-							<option value="" disabled selected>Vælg postnummer her..</option>
+						<select id="select-create-edit-property-zipcode" class="dropdown zipcode-dropdown zipcode validate" name="txt-property-zipcode">
+							<option value="" selected>Vælg postnummer her..</option>
+
+						</select>
+
+						<div  class="search-desc">Vælg region</div>
+						<select id="select-create-edit-property-region" class="dropdown region-dropdown validate region" name="txt-property-region">
+							<option value="" selected>Vælg region her..</option>
 
 						</select>
 
@@ -79,7 +86,7 @@
 					<div class="filter-body">
 						<div class="search-desc">Indtast pris</div>
 						<div class="input-fluid">
-							<input id="txt-create-edit-property-price" type="text" class="filters-text-input" placeholder="Enter search here..." name="txt-property-price">
+							<input id="txt-create-edit-property-price" type="text" class="filters-text-input validate price" placeholder="Indtast pris her.." name="txt-property-price">
 						</div>
 					</div>
 
@@ -87,8 +94,8 @@
 					<div class="filter-body">
 
 						<div class="input-fluid">
-							<button data-go-to="wdw-properties-admin" type="button" class="btn link filters-search-button"> Back</button>
-							<button data-go-to="wdw-properties-admin" type="button" id="btn-create-edit-property" class="btn filters-search-button link">Submit</button>
+							<button type="button" id="btn-create-edit-property" class="btn filters-submit-button link">Submit</button>
+							<button data-go-to="wdw-properties-admin" type="button" class="btn link filters-back-button"> Back</button>
 						</div>
 					</div>
 
@@ -100,16 +107,16 @@
 					<div class="add-image-placeholder">
 						<img class="img-preview" src="">
 						<div class="add-symbol fa fa-plus"></div>        
-						<input class="file-input" type="file" name="file-0">
+						<input class="file-input image validate" type="file" name="file-0">
 					</div>
 					<div class="add-image-placeholder img-preview">
 						<div class="add-symbol fa fa-plus" aria-hidden="true""></div>
-						<input class="file-input" type="file" name="file-1">
+						<input class="file-input image validate" type="file" name="file-1">
 					</div>
 					<div class="add-image-placeholder">
 						<img class="img-preview" src="">
 						<div class="add-symbol fa fa-plus"></div>        
-						<input class="file-input" type="file" name="file-2">
+						<input class="file-input image validate" type="file" name="file-2">
 					</div>
 				</div>
 

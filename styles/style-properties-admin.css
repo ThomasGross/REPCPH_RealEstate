@@ -109,6 +109,27 @@
 	border-radius: 3px;
 }
 
+.filters-back-button {
+	height: 38px;
+	width: 68px;
+	background: #007777;
+	border: 1px solid #007777;
+	color: #ffffff;
+	border-radius: 3px;
+	flex-basis: 100%;
+}
+
+.filters-submit-button {
+	height: 38px;
+	width: 68px;
+	background: #007777;
+	border: 1px solid #007777;
+	color: #ffffff;
+	border-radius: 3px;
+	flex-basis: 100%;
+	margin-bottom: 8px;
+}
+
 .full-width {
 	width: 100%;
 }
@@ -241,7 +262,7 @@
 }
 
 .img{
-	background-image: url("/CMSV1/apartment2.jpg");
+	background-image: url("/CMSV1/assets/apartment2.jpg");
 	background-repeat: no-repeat;
 	/*background-size: auto 100vh;*/
 	background-size: cover;
@@ -304,18 +325,18 @@ form#frm-create-edit-property {
 
 
 }
-.add-img-container .add-image-placeholder{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 250px;
-	width: 260px;
-	background-color: #f7f7f7;
-	border-radius: 5px;
-	background-size: cover;
-	background-position: center;
-	margin: 4px 4px;
-	
+.add-img-container .add-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    min-width: 258px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    flex-basis: 32%;
+    margin: 4px 4px;
 }
 
 .add-img-container .add-image-placeholder:hover{

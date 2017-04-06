@@ -61,8 +61,19 @@ fnGetZipcodes(function( data ){
 	fnPopulateZipDropdowns( data );
 });
 
+fnGetRegions(function( data ){
+	fnPopulateRegionDropdowns( data );
+});
+
 function fnGetZipcodes(fnCallBack){
 	var sUrl = "/CMSV1/services/properties/api-get-zipcodes.php";
+	$.getJSON( sUrl , function( ajData ){
+		fnCallBack(ajData);
+	});
+}
+
+function fnGetRegions(fnCallBack){
+	var sUrl = "/CMSV1/services/properties/api-get-regions.php";
 	$.getJSON( sUrl , function( ajData ){
 		fnCallBack(ajData);
 	});
@@ -74,7 +85,7 @@ function fnPopulateZipDropdowns(ajData){
 
 	for( var i = 0 ; i < ajData.length ; i++ ){
 
-		userTemplate = sUserTemplate
+		userTemplate = sUserTemplate;
 
 		userTemplate = userTemplate.replace( "{{zipcode1}}" , ajData[i].zipcode );
 		userTemplate = userTemplate.replace( "{{zipcode2}}" , ajData[i].zipcode );
@@ -84,33 +95,56 @@ function fnPopulateZipDropdowns(ajData){
 	}
 }
 
+function fnPopulateRegionDropdowns(ajData){
+	var sUserTemplate= '<option value="{{name1}}">{{name2}}</option>'
+
+	for( var i = 0 ; i < ajData.length ; i++ ){
+
+		userTemplate = sUserTemplate;
+
+		userTemplate = userTemplate.replace( "{{id}}" , ajData[i].regionId );
+		userTemplate = userTemplate.replace( "{{name1}}" , ajData[i].name );
+		userTemplate = userTemplate.replace( "{{name2}}" , ajData[i].name );
+
+		$(".region-dropdown").append( userTemplate );
+	}
+}
+
 
 $("#btn-create-edit-account").click(function(){
 
 	var sUserId = $("#txt-create-edit-id").val();
 	var jFormData = $("#frm-create-edit-users").serialize();
 
-	if (sUserId.length == 0){
+	fnValidateUserForm($("#frm-create-edit-users"), function(bValdationCheck){
 
-		fnCreateUser(jFormData, function(jData){
-			if (jData.status == "ok") {
-				alert("user created");
-				fnGetUsers(function(data){
-					fnCreateUserTable(data);
-				}); 
-			}
-		});
+		if (bValdationCheck == true) {
 
-	} else  {
-		fnEditUser(jFormData, function(jData){
-			if (jData.status == "ok") {
-				alert("user edited");
-				fnGetUsers(function(data){
-					fnCreateUserTable(data);
-				}); 
+			if (sUserId.length == 0){
+
+				fnCreateUser(jFormData, function(jData){
+					if (jData.status == "ok") {
+						alert("user created");
+						fnGetUsers(function(data){
+							fnCreateUserTable(data);
+						}); 
+					}
+				});
+
+
+
+			} else  {
+				fnEditUser(jFormData, function(jData){
+					if (jData.status == "ok") {
+						alert("user edited");
+						fnGetUsers(function(data){
+							fnCreateUserTable(data);
+						}); 
+					}
+				});
 			}
-		});
-	}
+		}
+	});
 });
 
 // USER DELETION
@@ -223,8 +257,8 @@ function fnCreateUser( jFormData, fnCallBack ){
 		"dataType":"json"
 
 	}).done( function( data ){
-
-		fnCallBack(data);
+		console.log(data);
+		// fnCallBack(data);
 		
 	}).fail( function( data ){
 		console.log(data);
@@ -378,6 +412,11 @@ function fnGetProperties( fnCallBack ){
 
 function fnCreateProperty(formData, fnCallBack ){
 
+	// Display the key/value pairs
+	// for (var pair of formData.entries()) {
+ 	//    	console.log(pair[0]+ ', ' + pair[1]); 
+	// }
+	
 
 	var sUrl = "/CMSV1/services/properties/api-create.php";
 
@@ -386,11 +425,12 @@ function fnCreateProperty(formData, fnCallBack ){
 		"type":"post",
 		"data": new FormData(formData),
 		"contentType":false,
-		"dataType": "json",
+		// "dataType": "json",
 		"processData":false,
 		"cache":false
 
 	}).done( function( data ){
+		console.log(data);
 		fnCallBack(data);
 
 	}).fail( function( data ){
@@ -407,7 +447,8 @@ function fnEditProperty( fnCallBack ){
 ///// DELETE
 
 function fnDeleteProperty(sPropertyId, fnCallBack ){
-	
+
+
 	$.ajax({
 		"url":"services/properties/api-delete.php",
 		"method":"post",
@@ -436,7 +477,8 @@ function fnRemovePropertyAttr(){
 	$("#txt-create-edit-property-road").val( "" );
 	$("#txt-create-edit-property-city").val( "" );
 	$("#txt-create-edit-property-region").val( "" );
-	$("#txt-create-edit-property-zipcode").val( "" );
+	$("#select-create-edit-property-zipcode").parent().siblings(".selected").text( "Vælg postnummer her.." );
+	$("#select-create-edit-property-region").parent().siblings(".selected").text( "Vælg region her.." );
 	$("#txt-create-edit-property-price").val( "" );
 	$("#txt-create-edit-property-long").val( "" );
 	$("#txt-create-edit-property-lat").val( "" );
@@ -446,8 +488,9 @@ function fnPopulatePropertyForm(jData){
 	$("#txt-create-edit-property-id").val( jData.id );
 	$("#txt-create-edit-property-road").val( jData.street );
 	$("#txt-create-edit-property-city").val( jData.city );
-	$("#txt-create-edit-property-region").val( jData.region );
+	$("#txt-create-edit-property-region").val( jData.municipality );
 	$("#select-create-edit-property-zipcode").parent().siblings(".selected").text( jData.zipcode + " " + jData.city );
+	$("#select-create-edit-property-region").parent().siblings(".selected").text( jData.region );
 	$("#txt-create-edit-property-price").val( jData.price );
 	$("#txt-create-edit-property-long").val( jData.long );
 	$("#txt-create-edit-property-lat").val( jData.lat );
@@ -568,18 +611,13 @@ $("#btn-create-edit-property").click(function(){
 });
 
 $("#frm-create-edit-property").on('submit', function(e){
-
 	e.preventDefault();
 
-	var sUrl = "/CMSV1/services/properties/api-create.php";
+	var form = this;
 
-		// Display the key/value pairs
-		// for (var pair of formData.entries()) {
-	 	//    	console.log(pair[0]+ ', ' + pair[1]); 
-		// }
+	fnValidatePropertyForm($(form), function(bValdationCheck){
 
-
-		fnCreateProperty(this, function(jData){
+		fnCreateProperty(form, function(jData){
 
 			if (jData.status = "ok") {
 				fnGetProperties(function( data ){
@@ -590,126 +628,12 @@ $("#frm-create-edit-property").on('submit', function(e){
 				alert("create failed");
 			}
 
-
-
 		});
 
 	});
 
+});
 
-
-//////////////////////////////////////////////
-///// DESKTOP NOTIFICATION
-//////////////////////////////////////////////
-	// TO DO : ONLY STARTS WHEN USER IS LOGGED IN
-
-
-	var iPropertyCount = 0;
-
-	fnGetProperties(function(ajData){
-
-		iPropertyCount = ajData.length;
-
-		setInterval(function(){
-
-			fnGetProperties(function(ajData){
-
-				console.log(iPropertyCount);
-
-				if ( iPropertyCount < ajData.length ) {
-
-					iPropertyCount = ajData.length;
-
-					fnDesktopNotification();
-
-					// get the sounds from this link: http://soundbible.com
-					// build a sound object
-					var oSound = new Audio('./assets/property-message.mp3');
-					// play the sound
-					oSound.play();
-					// TO DO PLAY SOUND FUNCTION
-					fnTitleNotification('- New Property Added -')
-
-				} else if( iPropertyCount > ajData.length ) {
-
-					iPropertyCount = ajData.length;
-				}
-
-			});
-
-		}, 1000);
-
-	});
-
-	function fnTitleNotification(sText){
-
-		var myVar = setInterval(myTimer, 1000);
-		var oldtitle = document.title;
-
-		var count = 0
-
-		function myTimer() {
-
-			if (count == 6) {
-
-				clearInterval(myVar)
-
-			} else if ((count % 2) == 1) {
-
-				document.title = oldtitle;
-				count++;
-
-			} else {
-				document.title = sText;
-				count++;
-				
-			}
-		}		
-
-	}
-
-
-	function fnDesktopNotification() {
-	    // Let's check if the browser supports notifications
-	    if (!("Notification" in window)) {
-	    	alert("This browser does not support desktop notification");
-	    }
-
-	    // Let's check whether notification permissions have already been granted
-	    else if (Notification.permission === "granted") {
-	        // If it's okay let's create a notification
-
-	        var options = {
-	        	body: "A new property has been added",
-	        	icon: "./assets/property-icon.png",
-	        	dir : "ltr"
-	        };
-
-	        var notification = new Notification("REP | CPH",options);
-
-	    }
-
-	    // Otherwise, we need to ask the user for permission
-	    else if (Notification.permission !== "denied") {
-	    	Notification.requestPermission(function (permission) {
-	        	// If the user accepts, let's create a notification
-	        	if (permission === "granted") {
-
-	        		var options = {
-	        			body: "A new property has been added",
-	        			icon: "./assets/property-icon.png",
-	        			dir : "ltr"
-	        		};
-
-	        		var notification = new Notification("REP | CPH",options);
-
-	        	}
-	        });
-	    }
-
-      // At last, if the user has denied notifications, and you 
-      // want to be respectful there is no need to bother them any more.
-  }
 
 //////////////////////////////////////////////
 ///// RIGHT CLICK NAVIGATION
@@ -723,101 +647,6 @@ $('body').bind("contextmenu", function(e) {
         	location.reload();
         }
     });
-
-//////////////////////////////////////////////
-///// FONTEND VALIDATION
-//////////////////////////////////////////////
-
-// Signup
-
-function validate(form, fnCallBack){
-
-	console.log(form);
-	console.log("length "+form.length);
-
-	var bValidateCheck = false;
-	var bUsernameCheck = false;
-	var bEmailCheck = false;
-	var bPasswordCheck = false;
-
-
-	var aoChildren = form.find('input.validate');
-
-
-	for( var i = 0; i < aoChildren.length; i++ ){
-
-		var oInput = $( aoChildren[i] ); // convert 
-
-		if (oInput.hasClass('username')) {
-			bUsernameCheck = validateUsername(oInput);
-			console.log(bUsernameCheck);
-		}
-		if (oInput.hasClass('email')) {
-			bEmailCheck = validateEmail(oInput);
-			console.log(bEmailCheck);
-
-		}
-		if (oInput.hasClass('password')) {
-			bPasswordCheck = validatePassword(oInput);
-			console.log(bPasswordCheck);
-		}
-
-	}
-
-	if (bUsernameCheck && bEmailCheck && bPasswordCheck) {
-		fnCallBack(true);
-	}
-
-}
-
-function validateUsername(oInput){
-
-	var sText = oInput.val();
-	var iMin = 2;
-	var iMax = 18;
-
-	if( sText.length < iMin || sText.length > iMax ){
-		oInput.parent().addClass('invalid');
-		return false;
-	} else{
-		oInput.parent().removeClass('invalid');
-		return true;
-	}
-}
-
-
-function validateEmail(oInput) {
-
-	var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-	var sEmail = oInput.val();
-	var bRegexTest = regex.test(sEmail);
-
-	if (bRegexTest) {
-		oInput.parent().removeClass('invalid');
-		return true;
-	} else {
-		oInput.parent().addClass('invalid');
-		return false;
-	}
-
-}	
-
-function validatePassword(oInput) {
-
-	var regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
-
-	var sPassword = oInput.val();
-	var bRegexTest = regex.test(sPassword);
-
-	if (bRegexTest) {
-		oInput.parent().removeClass('invalid');
-		return true;
-	} else {
-		oInput.parent().addClass('invalid');
-		return false;
-	}
-}
 
 
 

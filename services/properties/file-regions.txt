@@ -1,0 +1,47 @@
+[
+ {
+ 	"regionId":"1",
+ 	"name":"Bornholm"
+ },
+ {
+ 	"regionId":"2",
+ 	"name":"Fyn"
+ },
+ {
+ 	"regionId":"3",
+ 	"name":"København by"
+ },
+ {
+ 	"regionId":"4",
+ 	"name":"Københavns omegn"
+ },
+ {
+ 	"regionId":"5",
+ 	"name":"Nordjylland"
+ },
+ {
+ 	"regionId":"6",
+ 	"name":"Nordsjælland"
+ },
+ {
+ 	"regionId":"7",
+ 	"name":"Sydjylland"
+ },
+ {
+ 	"regionId":"8",
+ 	"name":"Vest- og Sydsjælland"
+ },
+ {
+ 	"regionId":"9",
+ 	"name":"Vestjylland"
+ },
+ {
+ 	"regionId":"10",
+ 	"name":"Østjylland"
+ },
+ {
+ 	"regionId":"11",
+ 	"name":"Østsjælland"
+ }
+
+]

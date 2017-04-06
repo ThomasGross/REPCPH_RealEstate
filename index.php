@@ -92,11 +92,12 @@ if (isset($_SESSION['userSession'])) {
 
 
 
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	<script src="scripts/js-app.js"></script>
 	<script src="scripts/js-login.js"></script>
+	<script src="scripts/js-validation.js"></script>
+	<script src="scripts/js-notification.js"></script>
 	<script src="scripts/jquery.easydropdown.js" type="text/javascript"></script>
 	<script src="scripts/sweetalert.min.js"></script>
 

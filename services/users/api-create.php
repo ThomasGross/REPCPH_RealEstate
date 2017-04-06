@@ -1,12 +1,43 @@
 <?php 
 
+	include 'validation-user.php';
+	include 'mail-service.php';
+
 	$sUniqueId = uniqid();
 
 	$sUsername = $_POST['txt-user-username'];
 	$sEmail = $_POST['txt-user-email'];
 	$sPassword = $_POST['txt-user-password'];
+	$sPasswordRepeat = "";
 
-	
+
+	$bUsernameCheck = fnIsUsernameValid( $sUsername , 2 , 18 ); // true or false | 1 or nothing
+	if ($bUsernameCheck == false){
+		echo '{"status":"error", "description":"username-unfulfilled"}';
+		exit;
+	}
+
+	$bEmailCheck =  fnIsEmailValid( $sEmail ); // true or false | 1 or nothing
+	if ($bEmailCheck == false){
+		echo '{"status":"error", "description":"email-unfulfilled"}';
+		exit;
+	}
+
+	if (isset($_POST['txt-user-password-repeat'])) {
+		$sPasswordRepeat = $_POST['txt-user-password-repeat'];
+
+		if ($sPasswordRepeat != $sPassword) {
+			echo '{"status":"error", "description":"password-not-identical"}';
+			exit;
+		}
+	}
+
+	$bPasswordCheck = fnValidatePassword( $sPassword );
+	if ($bPasswordCheck == false) {
+		echo '{"status":"error", "description":"password-unfulfilled"}';
+		exit;
+	}
+
 
 	$ajUsers = [];
 
@@ -53,6 +84,9 @@
 	// save the text back to the file 
 	file_put_contents( "users.txt" , $sajUsers);
 
+	fnSendWelcomeMail($sEmail);
+
 	echo '{"status":"ok"}';
+
 
 ?>

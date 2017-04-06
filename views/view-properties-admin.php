@@ -65,7 +65,7 @@
 				<div class="filter-body">
 					<div class="headline">Tilføj nyt postnummer</div>
 
-					<select class="dropdown region-dropdown zipcode-dropdown" name="txt-user-role">
+					<select class="dropdown zipcode-dropdown" name="txt-user-role">
 						<option value="" disabled selected>Select your option...</option>
 					</select>
 

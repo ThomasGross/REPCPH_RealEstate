@@ -1,5 +1,6 @@
 <?php 
 
+include 'validation-property.php';
 
 $sFileName = "file-properties.txt";
 
@@ -7,18 +8,63 @@ $sUniqueId = uniqid();
 
 $sPropertyStreet = $_POST['txt-property-street'];
 $sPropertyCity = $_POST['txt-property-city'];
-$sPropertyRegion = $_POST['txt-property-region'];
+$sPropertyMunicipality = $_POST['txt-property-municipality'];
 $sPropertyZipcode = $_POST['txt-property-zipcode'];
+$sPropertyRegion = $_POST['txt-property-region'];
 $sPropertyPrice = $_POST['txt-property-price'];
 $sPropertyLong = $_POST['txt-property-long'];
 $sPropertyLat = $_POST['txt-property-lat'];
 
 $ajProperties = [];
 
-	// open the file and get the contents of it
+
+$bStreetCheck = fnValidateStreet( $sPropertyStreet ); // true or false | 1 or nothing
+if ($bStreetCheck == false){
+	echo '{"status":"error", "description":"streetname-unfulfilled"}';
+	exit;
+}
+
+$bCityCheck = fnValidateCity( $sPropertyCity ); // true or false | 1 or nothing
+if ($bCityCheck == false){
+	echo '{"status":"error", "description":"cityname-unfulfilled"}';
+	exit;
+}
+
+$bMunicipalityCheck = fnValidateMunicipality( $sPropertyMunicipality ); // true or false | 1 or nothing
+if ($bMunicipalityCheck == false){
+	echo '{"status":"error", "description":"municipalityname-unfulfilled"}';
+	exit;
+}
+
+$bZipcodeCheck = fnValidateZipcode( $sPropertyZipcode ); // true or false | 1 or nothing
+if ($bZipcodeCheck == false){
+	echo '{"status":"error", "description":"zipcode-unfulfilled"}';
+	exit;
+}
+
+$bRegionCheck = fnValidateRegion( $sPropertyRegion ); // true or false | 1 or nothing
+if ($bRegionCheck == false){
+	echo '{"status":"error", "description":"region-unfulfilled"}';
+	exit;
+}
+
+$bPriceCheck = fnValidatePrice( $sPropertyPrice ); // true or false | 1 or nothing
+if ($bPriceCheck == false){
+	echo '{"status":"error", "description":"price-unfulfilled"}';
+	exit;
+}
+
+$bImageCheck = fnValidateImage( $_FILES ); // true or false | 1 or nothing
+if ($bImageCheck == false){
+	echo '{"status":"error", "description":"image-unfulfilled"}';
+	exit;
+}
+
+
+// open the file and get the contents of it
 $sProperties = file_get_contents( $sFileName );
 
-	if ( $sProperties != null ){
+if ( $sProperties != null ){
 		// At this moment I have text and text only
 		// convert the text to an object
 		$ajProperties = json_decode( $sProperties ); // array with json
@@ -37,8 +83,9 @@ $sProperties = file_get_contents( $sFileName );
 	// create a key and assign a value to the object
 	$jProperty->street = $sPropertyStreet;
 	$jProperty->city = $sPropertyCity;
-	$jProperty->region = $sPropertyRegion;
+	$jProperty->municipality = $sPropertyMunicipality;
 	$jProperty->zipcode = $sPropertyZipcode;
+	$jProperty->region = $sPropertyRegion;
 	$jProperty->price = $sPropertyPrice;
 	$jProperty->long = $sPropertyLong;
 	$jProperty->lat = $sPropertyLat;
@@ -51,17 +98,6 @@ $sProperties = file_get_contents( $sFileName );
 	$imageArray = array();
 
 	for($i=0 ; $i<count($_FILES) ; $i++){
-
-		if($_FILES['file-'.$i]["error"] == 4) {
-			//means there is no file uploaded
-			break;
-		}
-
-		if($_FILES['file-'.$i]["error"] != 0) {
-			//stands for any kind of errors happen during the uploading
-			echo "error file";
-			break;
-		} 
 
 		$uploadfile = $uploadDir . basename($_FILES['file-'.$i]['name']);
 		
@@ -94,5 +130,5 @@ $sProperties = file_get_contents( $sFileName );
 
 	echo '{"status":"ok"}';
 
-	?>
+?>
 

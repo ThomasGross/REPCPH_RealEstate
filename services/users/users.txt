@@ -28,27 +28,6 @@
         "userRole": "admin"
     },
     {
-        "id": "58e555d6980ad",
-        "username": "222",
-        "email": "",
-        "password": "",
-        "userRole": "user"
-    },
-    {
-        "id": "58e5571b0008c",
-        "username": "222",
-        "email": "",
-        "password": "",
-        "userRole": "user"
-    },
-    {
-        "id": "58e55ad842b75",
-        "username": "123",
-        "email": "",
-        "password": "",
-        "userRole": "user"
-    },
-    {
         "id": "58e55d19371e7",
         "username": "",
         "email": "",
@@ -63,16 +42,72 @@
         "userRole": "user"
     },
     {
-        "id": "58e564162ded1",
-        "username": "1231",
-        "email": "thomas@adss.dw",
-        "password": "",
+        "id": "58e62cdfa6020",
+        "username": "Thomas",
+        "email": "jadslkjs@kajsdalk.ck",
+        "password": "Nicefyr32#",
         "userRole": "user"
     },
     {
-        "id": "58e56dc4bde40",
-        "username": "ads",
-        "email": "ads@asd.dk",
+        "id": "58e6303118bd7",
+        "username": "Thomas",
+        "email": "jadslkjs@kajsdalk.ck",
+        "password": "Nicefyr32#",
+        "userRole": "user"
+    },
+    {
+        "id": "58e63348b7612",
+        "username": "asdsasd",
+        "email": "Thomas@gas.lc",
+        "password": "Nicefyr32#",
+        "userRole": "user"
+    },
+    {
+        "id": "58e633508eca2",
+        "username": "12123",
+        "email": "Thomas@gas.lc",
+        "password": "Nicefyr32#",
+        "userRole": "user"
+    },
+    {
+        "id": "58e633dd55d5c",
+        "username": "ajsdlkasdhajsd",
+        "email": "Thomas@gmail.co",
+        "password": "Nicefyr33#",
+        "userRole": "admin"
+    },
+    {
+        "id": "58e6a0bd7a91c",
+        "username": "Thomas",
+        "email": "thomagrossrasmussen@gmail.com",
+        "password": "Nicefyr32#",
+        "userRole": "user"
+    },
+    {
+        "id": "58e6a2aa1aca8",
+        "username": "Thomas",
+        "email": "thomagrossrasmussen@gmail.com",
+        "password": "Nicefyr32#",
+        "userRole": "user"
+    },
+    {
+        "id": "58e6a37e5bc0c",
+        "username": "Thomas",
+        "email": "thomagrossrasmussen@gmail.com",
+        "password": "Nicefyr32#",
+        "userRole": "user"
+    },
+    {
+        "id": "58e6a3d952e61",
+        "username": "Thomas",
+        "email": "thomagrossrasmussen@gmail.com",
+        "password": "Nicefyr32#",
+        "userRole": "user"
+    },
+    {
+        "id": "58e6a4351df1c",
+        "username": "Thomas",
+        "email": "thomagrossrasmussen@gmail.com",
         "password": "Nicefyr32#",
         "userRole": "user"
     }

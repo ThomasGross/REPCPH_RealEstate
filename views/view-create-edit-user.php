@@ -10,19 +10,19 @@
 
 		<div class="input-container">
 			<span class="fa fa-user"></span>
-			<input class="txt-input" id="txt-create-edit-username" placeholder="Username" type="text" name="txt-user-username">
+			<input class="txt-input username validate" id="txt-create-edit-username" placeholder="Username" type="text" name="txt-user-username">
 		</div>
 		<hr>
 
 		<div class="input-container">
 			<span class="fa fa-envelope"></span>
-			<input class="txt-input" id="txt-create-edit-email" placeholder="Email" type="text" name="txt-user-email">
+			<input class="txt-input email validate" id="txt-create-edit-email" placeholder="Email" type="text" name="txt-user-email">
 		</div>
 		<hr>
 
 		<div class="input-container">
 			<span class="fa fa-lock"></span>
-			<input class="txt-input" id="txt-create-edit-password" placeholder="Password" type="text" name="txt-user-password">
+			<input class="txt-input validate password" id="txt-create-edit-password" placeholder="Password" type="text" name="txt-user-password">
 		</div>
 		<hr>
 
@@ -41,7 +41,7 @@
 	</form>
 
 
-	<a data-go-to="wdw-users" type="button" id="btn-create-edit-account" class="btn link">Submit</a>
+	<a type="button" id="btn-create-edit-account" class="btn link">Submit</a>
 	<a data-go-to="wdw-users" type="button" class="btn link"> Back</a>
 
 

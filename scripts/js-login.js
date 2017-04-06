@@ -42,7 +42,7 @@ $("#btn-logout").on('click', function(){
 
 $("#btn-create-account").on('click', function(){
 
-	validate($("#frm-user-create"), function(bValdationCheck){
+	fnValidateUserForm($("#frm-user-create"), function(bValdationCheck){
 
 		if (bValdationCheck == true) {
 			var jFormData = $("#frm-user-create").serialize();
@@ -63,8 +63,6 @@ $("#btn-create-account").on('click', function(){
 		}
 
 	});
-
-
 
 });
 
