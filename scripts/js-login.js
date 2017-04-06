@@ -18,7 +18,7 @@ $('#btn-login').on("click", function() {
 				type: "error",
 				confirmButtonText: "OK"
 			}, function(){
-				fnSetupDesktopNitification();
+				
 				
 			});
 		}
@@ -41,21 +41,31 @@ $("#btn-logout").on('click', function(){
 // SIGNUP
 
 $("#btn-create-account").on('click', function(){
-	var jFormData = $("#frm-user-create").serialize();
-	fnCreateUser( jFormData, function(jData){
 
-		if (jData.status == "ok") {
-			swal({
-				title: "User created",
-				text: "Thanks for joining REP_CPH",
-				type: "success",
-				confirmButtonText: "GO TO LOGIN"
-			},
-			function(){
-				location.reload();
+	validate($("#frm-user-create"), function(bValdationCheck){
+
+		if (bValdationCheck == true) {
+			var jFormData = $("#frm-user-create").serialize();
+			fnCreateUser( jFormData, function(jData){
+
+				if (jData.status == "ok") {
+					swal({
+						title: "User created",
+						text: "Thanks for joining REP_CPH",
+						type: "success",
+						confirmButtonText: "GO TO LOGIN"
+					},
+					function(){
+						location.reload();
+					});
+				}
 			});
 		}
+
 	});
+
+
+
 });
 
 

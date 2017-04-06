@@ -26,5 +26,54 @@
         "email": "ads",
         "password": "ads",
         "userRole": "admin"
+    },
+    {
+        "id": "58e555d6980ad",
+        "username": "222",
+        "email": "",
+        "password": "",
+        "userRole": "user"
+    },
+    {
+        "id": "58e5571b0008c",
+        "username": "222",
+        "email": "",
+        "password": "",
+        "userRole": "user"
+    },
+    {
+        "id": "58e55ad842b75",
+        "username": "123",
+        "email": "",
+        "password": "",
+        "userRole": "user"
+    },
+    {
+        "id": "58e55d19371e7",
+        "username": "",
+        "email": "",
+        "password": "",
+        "userRole": "user"
+    },
+    {
+        "id": "58e55d4e55323",
+        "username": "",
+        "email": "",
+        "password": "",
+        "userRole": "user"
+    },
+    {
+        "id": "58e564162ded1",
+        "username": "1231",
+        "email": "thomas@adss.dw",
+        "password": "",
+        "userRole": "user"
+    },
+    {
+        "id": "58e56dc4bde40",
+        "username": "ads",
+        "email": "ads@asd.dk",
+        "password": "Nicefyr32#",
+        "userRole": "user"
     }
 ]

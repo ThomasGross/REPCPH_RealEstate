@@ -3,7 +3,7 @@
 	left: 0;
 	width: 100%;
 	height: calc(100% - 60px);
-	background-image: url("/CMSV1/apartment1.jpg");
+	background-image: url("/CMSV1/assets/apartment1.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -78,7 +78,7 @@
 	height: 40px;
 	align-items: center;
 	justify-content: center;
-	flex: 1;
+	flex-basis: 10%
 }
 
 
@@ -88,7 +88,7 @@
 	height: 50px;
 	font-size: 14px;
 	font-weight: 100;
-	flex: 10;
+	flex-basis: 90%;
 }
 
 .input-option-remember{
@@ -154,7 +154,11 @@
 	border-bottom: 1px solid;
 }
 
-
+.invalid {
+    background-color: rgba(239,36,17,0.7);
+    -webkit-border-radius: 3px; 
+    border-radius: 3px; 
+}
 
 /*REP|CPH*/
 

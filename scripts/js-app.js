@@ -391,8 +391,7 @@ function fnCreateProperty(formData, fnCallBack ){
 		"cache":false
 
 	}).done( function( data ){
-		console.log(data);
-
+		fnCallBack(data);
 
 	}).fail( function( data ){
 		console.log(data);
@@ -572,9 +571,7 @@ $("#frm-create-edit-property").on('submit', function(e){
 
 	e.preventDefault();
 
-	var sUrl = "";
-
-	sUrl = "/CMSV1/services/properties/api-create.php";
+	var sUrl = "/CMSV1/services/properties/api-create.php";
 
 		// Display the key/value pairs
 		// for (var pair of formData.entries()) {
@@ -613,34 +610,66 @@ $("#frm-create-edit-property").on('submit', function(e){
 
 		iPropertyCount = ajData.length;
 
+		setInterval(function(){
+
+			fnGetProperties(function(ajData){
+
+				console.log(iPropertyCount);
+
+				if ( iPropertyCount < ajData.length ) {
+
+					iPropertyCount = ajData.length;
+
+					fnDesktopNotification();
+
+					// get the sounds from this link: http://soundbible.com
+					// build a sound object
+					var oSound = new Audio('./assets/property-message.mp3');
+					// play the sound
+					oSound.play();
+					// TO DO PLAY SOUND FUNCTION
+					fnTitleNotification('- New Property Added -')
+
+				} else if( iPropertyCount > ajData.length ) {
+
+					iPropertyCount = ajData.length;
+				}
+
+			});
+
+		}, 1000);
+
 	});
 
-	setInterval(function(){
+	function fnTitleNotification(sText){
 
-		fnGetProperties(function(ajData){
+		var myVar = setInterval(myTimer, 1000);
+		var oldtitle = document.title;
 
-			console.log(iPropertyCount);
+		var count = 0
 
-			if (iPropertyCount > 0 && iPropertyCount < ajData.length ) {
+		function myTimer() {
 
-				iPropertyCount = ajData.length;
+			if (count == 6) {
 
-				notifyMe();
+				clearInterval(myVar)
 
-				// get the sounds from this link: http://soundbible.com
-				// build a sound object
-				var oSound = new Audio('./assets/property-message.mp3');
-				// play the sound
-				oSound.play();
-				// TO DO PLAY SOUND FUNCTION
+			} else if ((count % 2) == 1) {
 
+				document.title = oldtitle;
+				count++;
+
+			} else {
+				document.title = sText;
+				count++;
+				
 			}
+		}		
 
-		});
+	}
 
-	}, 1000);
 
-	function notifyMe() {
+	function fnDesktopNotification() {
 	    // Let's check if the browser supports notifications
 	    if (!("Notification" in window)) {
 	    	alert("This browser does not support desktop notification");
@@ -649,7 +678,15 @@ $("#frm-create-edit-property").on('submit', function(e){
 	    // Let's check whether notification permissions have already been granted
 	    else if (Notification.permission === "granted") {
 	        // If it's okay let's create a notification
-	        var notification = new Notification("New property added!");
+
+	        var options = {
+	        	body: "A new property has been added",
+	        	icon: "./assets/property-icon.png",
+	        	dir : "ltr"
+	        };
+
+	        var notification = new Notification("REP | CPH",options);
+
 	    }
 
 	    // Otherwise, we need to ask the user for permission
@@ -658,21 +695,129 @@ $("#frm-create-edit-property").on('submit', function(e){
 	        	// If the user accepts, let's create a notification
 	        	if (permission === "granted") {
 
-	        		var myNotification = window.webkitNotifications.createNotification('./assets/notification-icon.png', 'Item Saved', 'My Application Name');
-					
-					myNotification.show();
+	        		var options = {
+	        			body: "A new property has been added",
+	        			icon: "./assets/property-icon.png",
+	        			dir : "ltr"
+	        		};
 
-	        		// var notification = new Notification("New property added!");
+	        		var notification = new Notification("REP | CPH",options);
+
 	        	}
 	        });
 	    }
 
       // At last, if the user has denied notifications, and you 
       // want to be respectful there is no need to bother them any more.
-  	}
+  }
+
+//////////////////////////////////////////////
+///// RIGHT CLICK NAVIGATION
+//////////////////////////////////////////////
+
+$('body').bind("contextmenu", function(e) {
+	e.preventDefault();
+
+        if(e.which == 3) //1: left, 2: middle, 3: right
+        {
+        	location.reload();
+        }
+    });
+
+//////////////////////////////////////////////
+///// FONTEND VALIDATION
+//////////////////////////////////////////////
+
+// Signup
+
+function validate(form, fnCallBack){
+
+	console.log(form);
+	console.log("length "+form.length);
+
+	var bValidateCheck = false;
+	var bUsernameCheck = false;
+	var bEmailCheck = false;
+	var bPasswordCheck = false;
 
 
+	var aoChildren = form.find('input.validate');
 
+
+	for( var i = 0; i < aoChildren.length; i++ ){
+
+		var oInput = $( aoChildren[i] ); // convert 
+
+		if (oInput.hasClass('username')) {
+			bUsernameCheck = validateUsername(oInput);
+			console.log(bUsernameCheck);
+		}
+		if (oInput.hasClass('email')) {
+			bEmailCheck = validateEmail(oInput);
+			console.log(bEmailCheck);
+
+		}
+		if (oInput.hasClass('password')) {
+			bPasswordCheck = validatePassword(oInput);
+			console.log(bPasswordCheck);
+		}
+
+	}
+
+	if (bUsernameCheck && bEmailCheck && bPasswordCheck) {
+		fnCallBack(true);
+	}
+
+}
+
+function validateUsername(oInput){
+
+	var sText = oInput.val();
+	var iMin = 2;
+	var iMax = 18;
+
+	if( sText.length < iMin || sText.length > iMax ){
+		oInput.parent().addClass('invalid');
+		return false;
+	} else{
+		oInput.parent().removeClass('invalid');
+		return true;
+	}
+}
+
+
+function validateEmail(oInput) {
+
+	var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	var sEmail = oInput.val();
+	var bRegexTest = regex.test(sEmail);
+
+	if (bRegexTest) {
+		oInput.parent().removeClass('invalid');
+		return true;
+	} else {
+		oInput.parent().addClass('invalid');
+		return false;
+	}
+
+}	
+
+function validatePassword(oInput) {
+
+	var regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+
+	var sPassword = oInput.val();
+	var bRegexTest = regex.test(sPassword);
+
+	if (bRegexTest) {
+		oInput.parent().removeClass('invalid');
+		return true;
+	} else {
+		oInput.parent().addClass('invalid');
+		return false;
+	}
+}
 
 
 

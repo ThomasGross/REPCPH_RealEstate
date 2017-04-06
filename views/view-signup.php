@@ -16,25 +16,25 @@
 
 					<div class="input-container">
 						<span class="fa fa-user"></span>
-						<input class="txt-input" id="txt-login-username" placeholder="Username" type="text" name="txt-user-username">
+						<input class="txt-input validate username" id="txt-login-username" placeholder="Username" type="text" name="txt-user-username">
 					</div>
 					<hr>
 
 					<div class="input-container">
 						<span class="fa fa-envelope"></span>
-						<input class="txt-input" id="txt-login-email" placeholder="Email" type="text" name="txt-user-email">
+						<input class="txt-input validate email" id="txt-login-email" placeholder="Email" type="text" name="txt-user-email">
 					</div>
 					<hr>
 
 					<div class="input-container">
 						<span class="fa fa-lock"></span>
-						<input type="password" class="txt-input" id="txt-login-password" placeholder="Password" type="text" name="txt-user-password">
+						<input type="password" class="txt-input password validate" id="txt-login-password" placeholder="Password" type="text" name="txt-user-password">
 					</div>
 					<hr>
 
 					<div class="input-container">
 						<span class="fa fa-repeat"></span>
-						<input type="password" class="txt-input" id="txt-login-confirmPassword" placeholder="Comfirm password" type="text">
+						<input type="password" class="txt-input password validate" id="txt-login-confirmPassword" placeholder="Comfirm password" type="text" name="txt-user-password-repeat">
 					</div>
 					<hr>
 
