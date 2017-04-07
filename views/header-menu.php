@@ -1,6 +1,9 @@
 <?php 
+// if a usersession is active
 if (isset($_SESSION['userSession'])) {
 
+	// If there is an active usersession show following menuitems
+	// The userrole determins which menuitems the user can interact with 
 	if ($userSession['userRole'] == "superadmin") {
 
 		$sMenuItems = 	'
@@ -29,8 +32,6 @@ if (isset($_SESSION['userSession'])) {
 	$sMenuItems ='';
 }
 ?>
-
-
 
 
 <div class="header-content">

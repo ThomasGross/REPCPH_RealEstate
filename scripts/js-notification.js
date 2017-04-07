@@ -2,38 +2,44 @@
 ///// DESKTOP NOTIFICATION
 //////////////////////////////////////////////
 
+// Global variable - tacks the number of properties
 var iPropertyCount = 0;
 
+// Call fnGetProperties to get total properties
 fnGetProperties(function(ajData){
 
+	// Set the counter equal to the array resieved
 	iPropertyCount = ajData.length;
 
+	// Set a interval that runs every sec 
 	setInterval(function(){
 
+		// Gets properties
 		fnGetProperties(function(ajData){
 
-			console.log(iPropertyCount);
-
+			// if a property is added
 			if ( iPropertyCount < ajData.length ) {
 
+				// Set the count equal to the array resieved
 				iPropertyCount = ajData.length;
 
+				// call a desktop notification
 				fnDesktopNotification();
 
-					// get the sounds from this link: http://soundbible.com
-					// build a sound object
-					var oSound = new Audio('./assets/property-message.mp3');
-					// play the sound
-					oSound.play();
-					// TO DO PLAY SOUND FUNCTION
-					fnTitleNotification('- New Property Added -')
+				// create a audio object and play it
+				var oSound = new Audio('./assets/property-message.mp3');
+				oSound.play();
 
-				} else if( iPropertyCount > ajData.length ) {
+				// call a title notification
+				fnTitleNotification('- New Property Added -')
 
-					iPropertyCount = ajData.length;
-				}
+			// if a property is removed
+			} else if( iPropertyCount > ajData.length ) {
 
-			});
+				iPropertyCount = ajData.length;
+			}
+
+		});
 
 	}, 1000);
 
@@ -41,22 +47,28 @@ fnGetProperties(function(ajData){
 
 function fnTitleNotification(sText){
 
+	// create a timer - runs every one sec
 	var myVar = setInterval(myTimer, 1000);
+	// save the old title
 	var oldtitle = document.title;
 
+	// counter tacks the number of title changes
 	var count = 0
 
 	function myTimer() {
 
+		// if the count is equal to 6 - stop the timer
 		if (count == 6) {
 
 			clearInterval(myVar)
 
+		// every even number user old title
 		} else if ((count % 2) == 1) {
 
 			document.title = oldtitle;
 			count++;
 
+		// every odd number user new title
 		} else {
 			document.title = sText;
 			count++;
@@ -75,14 +87,15 @@ function fnDesktopNotification() {
 
 	    // Let's check whether notification permissions have already been granted
 	    else if (Notification.permission === "granted") {
-	        // If it's okay let's create a notification
 
+	    	// options for notification
 	        var options = {
 	        	body: "A new property has been added",
 	        	icon: "./assets/property-icon.png",
 	        	dir : "ltr"
 	        };
 
+	        // create a notification
 	        var notification = new Notification("REP | CPH",options);
 
 	    }
@@ -93,18 +106,16 @@ function fnDesktopNotification() {
 	        	// If the user accepts, let's create a notification
 	        	if (permission === "granted") {
 
+	        		// options for notification
 	        		var options = {
 	        			body: "A new property has been added",
 	        			icon: "./assets/property-icon.png",
 	        			dir : "ltr"
 	        		};
 
+					// create a notification
 	        		var notification = new Notification("REP | CPH",options);
-
 	        	}
 	        });
 	    }
-
-      // At last, if the user has denied notifications, and you 
-      // want to be respectful there is no need to bother them any more.
-  }
+	}

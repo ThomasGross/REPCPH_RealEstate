@@ -1,5 +1,7 @@
 <?php
 
+	// function that takes a path to a directory and deletes
+	// all files inside it 
 	function fnDeletePropertyDirectory($sPath)
 	{
 		if (is_dir($sPath) === true)

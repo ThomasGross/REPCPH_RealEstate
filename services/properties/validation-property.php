@@ -1,6 +1,6 @@
 <?php  
 
-
+// function validates the steet 
 function fnValidateStreet($sStreet){
 
 	// checks for at least one character and one number, ignores spaces and commas.
@@ -9,7 +9,7 @@ function fnValidateStreet($sStreet){
 	$iMin = 2;
 	$iMax = 28;
 
-
+	// checks length and regex
 	if( strlen($sStreet) < $iMin || strlen($sStreet) > $iMax ){
 		return false;
 	} else if ($bRegexTest == 0) {
@@ -19,7 +19,7 @@ function fnValidateStreet($sStreet){
 	}
 }
 
-
+// function validates the city 
 function fnValidateCity($sCity){
 
 	$iMin = 2;
@@ -28,6 +28,7 @@ function fnValidateCity($sCity){
 	// checks for other than characters, ignores spaces.
 	$bRegexTest = preg_match("/^[æøåa-z\s*ÆØÅA-Z\s*]*$/", $sCity);
 
+	// checks length and regex
 	if( strlen($sCity) < $iMin || strlen($sCity) > $iMax ){
 		return false;
 	} else if ($bRegexTest == false) {
@@ -37,7 +38,7 @@ function fnValidateCity($sCity){
 	}
 }
 
-
+// function validates the municipality 
 function fnValidateMunicipality($sMunicipality){
 
 	$iMin = 2;
@@ -46,6 +47,8 @@ function fnValidateMunicipality($sMunicipality){
 	// checks for other than characters, ignore spaces
 	$bRegexTest = preg_match("/^[æøåa-z\s*ÆØÅA-Z\s*]*$/", $sMunicipality );
 
+
+	// checks length and regex
 	if( strlen($sMunicipality) < $iMin || strlen($sMunicipality) > $iMax ){
 		return false;
 	} else if ($bRegexTest == false) {
@@ -55,8 +58,10 @@ function fnValidateMunicipality($sMunicipality){
 	}
 }
 
+// function validates the zipcode 
 function fnValidateZipcode($sZipcode){
 
+	// Checks that the value is changed
 	if (strlen($sZipcode) == 0) {
 		return false;
 	} else {
@@ -64,8 +69,10 @@ function fnValidateZipcode($sZipcode){
 	}
 }
 
+// function validates the region 
 function fnValidateRegion($sRegion){
 
+	// Checks that the value is changed
 	if (strlen($sRegion) == 0) {
 		return false;
 	} else {
@@ -73,6 +80,7 @@ function fnValidateRegion($sRegion){
 	}
 }
 
+// function validates the price 
 function fnValidatePrice($sPrice){
 
 	$iMin = 1;
@@ -81,6 +89,7 @@ function fnValidatePrice($sPrice){
 	// checks for other than numbers, ignore spaces and dots
 	$bRegexTest = preg_match("/^[0-9\s\'.']*$/", $sPrice );
 
+	// checks length and regex
 	if( strlen($sPrice) < $iMin || strlen($sPrice) > $iMax ){
 		return false;
 	} else if ($bRegexTest == false) {
@@ -90,10 +99,13 @@ function fnValidatePrice($sPrice){
 	}
 }
 
+// function validates the images 
 function fnValidateImage($oFiles){
 
+	// counter that tracks if at least 3 files are uploaded
 	$imgCount = 0;
 
+	// loop though files
 	for($i=0 ; $i<count($_FILES) ; $i++){
 
 		$imgCount++;

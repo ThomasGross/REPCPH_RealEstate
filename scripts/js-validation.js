@@ -1,48 +1,47 @@
 //////////////////////////////////////////////
-///// FONTEND VALIDATION
+///// USER VALIDATION
 //////////////////////////////////////////////
-
-// USER VALIDATION
 
 function fnValidateUserForm(form, fnCallBack){
 
-	console.log(form);
-	console.log("length "+form.length);
-
-	var bValidateCheck = false;
+	// Boolean check for each possible element
 	var bUsernameCheck = false;
 	var bEmailCheck = false;
 	var bPasswordCheck = false;
 
-
+	// Find each element with input and the class validate in the form
 	var aoChildren = form.find('input.validate');
 
-
+	// loop over each element
 	for( var i = 0; i < aoChildren.length; i++ ){
 
-		var oInput = $( aoChildren[i] ); // convert 
+		// convert to jQuery object
+		var oInput = $( aoChildren[i] ); 
 
+		// Validate element if it contains the class
 		if (oInput.hasClass('username')) {
+			// returns true/false
 			bUsernameCheck = fnValidateUsername(oInput);
-			console.log(bUsernameCheck);
 		}
 		if (oInput.hasClass('email')) {
+			// returns true/false
 			bEmailCheck = fnValidateEmail(oInput);
-			console.log(bEmailCheck);
 		}
 		if (oInput.hasClass('password')) {
+			// returns true/false
 			bPasswordCheck = fnValidatePassword(oInput);
-			console.log(bPasswordCheck);
 		}
 
 	}
 
+	// Goes though each check
 	if (bUsernameCheck && bEmailCheck && bPasswordCheck) {
 		fnCallBack(true);
 	}
 
 }
 
+// function validates the length of the username
 function fnValidateUsername(oInput){
 
 	var sText = oInput.val();
@@ -58,14 +57,19 @@ function fnValidateUsername(oInput){
 	}
 }
 
-
+// function validates the email 
 function fnValidateEmail(oInput) {
 
+	// regular expression for validating email
 	var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+	// get the email string value 
 	var sEmail = oInput.val();
+	// test the regex with the email
 	var bRegexTest = regex.test(sEmail);
 
+	// if passed return true 
+	// else return false and add invalid class
 	if (bRegexTest) {
 		oInput.parent().removeClass('invalid-user');
 		return true;
@@ -76,13 +80,19 @@ function fnValidateEmail(oInput) {
 
 }	
 
+// function validates the password 
 function fnValidatePassword(oInput) {
 
+	// regular expression for validating password (letters, numbers, special character)
 	var regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 
+	// get the password string value 
 	var sPassword = oInput.val();
+	// test the regex with the password
 	var bRegexTest = regex.test(sPassword);
 
+	// if passed return true 
+	// else return false and add invalid class
 	if (bRegexTest) {
 		oInput.parent().removeClass('invalid-user');
 		return true;
@@ -92,14 +102,12 @@ function fnValidatePassword(oInput) {
 	}
 }
 
-// PROPERTY VALIDATION
+//////////////////////////////////////////////
+///// PROPERTY VALIDATION
+//////////////////////////////////////////////
 
 function fnValidatePropertyForm(form, fnCallBack){
 
-	console.log(form);
-	console.log("length "+form.length);
-
-	var bValidateCheck = false;
 	var bStreetCheck = false;
 	var bCityCheck = false;
 	var bMunicipalityCheck = false;
@@ -108,59 +116,48 @@ function fnValidatePropertyForm(form, fnCallBack){
 	var bPriceCheck = false;
 	var bImageCheck = false;
 
-
+	// :input can return all form types
 	var aoChildren = form.find(":input.validate");
 
-	console.log("C length "+aoChildren.length);
-
+	// loop over each element
 	for( var i = 0; i < aoChildren.length; i++ ){
 
-		var oInput = $( aoChildren[i] ); // convert 
+		// convert to jquery
+		var oInput = $( aoChildren[i] ); 
 
+		// Validate element if it contains the class
 		if (oInput.hasClass('street')) {
 			bStreetCheck = fnValidateStreet(oInput);
-			console.log("street "+bStreetCheck);
 		}
-
 		if (oInput.hasClass('city')) {
 			bCityCheck = fnValidateCity(oInput);
-			console.log("city "+bCityCheck);
 		}
-
 		if (oInput.hasClass('municipality')) {
 			bMunicipalityCheck = fnValidateMunicipality(oInput);
-			console.log("municipality "+bMunicipalityCheck);
 		}
-
 		if (oInput.hasClass('zipcode')) {
 			bZipcodeCheck = fnValidateZipcode(oInput);
-			console.log("zipcode "+bZipcodeCheck);
 		}
-
 		if (oInput.hasClass('region')) {
 			bRegionCheck = fnValidateRegion(oInput);
-			console.log("region "+bRegionCheck);
 		}
-
 		if (oInput.hasClass('price')) {
 			bPriceCheck = fnValidatePrice(oInput);
-			console.log("price "+bPriceCheck);
 		}
-
 		if (oInput.hasClass('image')) {
 			bImageCheck = fnValidateImage(oInput);
-			console.log("image "+bImageCheck);
 		}
-
 
 	}
 
+	// Goes though each check before returning 
 	if ( bStreetCheck == true && bCityCheck == true && bMunicipalityCheck == true && bZipcodeCheck == true && bRegionCheck == true && bPriceCheck == true && bImageCheck == true ) {
 		fnCallBack(true);
 	}
 
 }
 
+// function validates the steet 
 function fnValidateStreet(oInput){
 
 	var sText = oInput.val();
@@ -171,6 +168,7 @@ function fnValidateStreet(oInput){
 	var regex = /^([0-9\s*]+[æøåa-zÆØÅA-Z\s\','*]+|[æøåa-zÆØÅAA-Z\s\','*]+[0-9\s*]+)[0-9\s\','*æøåa-z\s\','*ÆØÅAA-Z\s\','*]*$/;
 	var bRegexTest = regex.test(sText);
 
+	// checks length and regex
 	if( sText.length < iMin || sText.length > iMax ){
 		oInput.parent().addClass('invalid-property');
 		return false;
@@ -183,6 +181,7 @@ function fnValidateStreet(oInput){
 	}
 }
 
+// function validates the city 
 function fnValidateCity(oInput){
 
 	var sText = oInput.val();
@@ -193,6 +192,7 @@ function fnValidateCity(oInput){
 	var regex = /^[æøåa-z\s*ÆØÅA-Z\s*]*$/;
 	var bRegexTest = regex.test(sText);
 
+	// checks length and regex
 	if( sText.length < iMin || sText.length > iMax ){
 		oInput.parent().addClass('invalid-property');
 		return false;
@@ -205,7 +205,7 @@ function fnValidateCity(oInput){
 	}
 }
 
-
+// function validates the municipality 
 function fnValidateMunicipality(oInput){
 
 	var sText = oInput.val();
@@ -216,6 +216,7 @@ function fnValidateMunicipality(oInput){
 	var regex = /^[æøåa-z\s*ÆØÅA-Z\s*]*$/;
 	var bRegexTest = regex.test(sText);
 
+	// checks length and regex
 	if( sText.length < iMin || sText.length > iMax ){
 		oInput.parent().addClass('invalid-property');
 		return false;
@@ -228,10 +229,13 @@ function fnValidateMunicipality(oInput){
 	}
 }
 
+// function validates the zipcode 
 function fnValidateZipcode(oInput){
 
+	// Gets zipcode
 	var sText = oInput.parent().siblings('.selected').text();
 
+	// Checks that the value is changed
 	if (sText == "Vælg postnummer her..") {
 		oInput.parent().parent().addClass('invalid-property');
 		return false;
@@ -241,10 +245,13 @@ function fnValidateZipcode(oInput){
 	}
 }
 
+// function validates the region 
 function fnValidateRegion(oInput){
 
+	// Gets region
 	var sText = oInput.parent().siblings('.selected').text();
 
+	// Checks that the value is changed
 	if (sText == "Vælg region her..") {
 		oInput.parent().parent().addClass('invalid-property');
 		return false;
@@ -254,8 +261,10 @@ function fnValidateRegion(oInput){
 	}
 }
 
+// function validates the price 
 function fnValidatePrice(oInput){
 
+	// get price
 	var sText = oInput.val();
 	var iMin = 1;
 	var iMax = 28;
@@ -264,6 +273,7 @@ function fnValidatePrice(oInput){
 	var regex = /^[0-9\s\'.']*$/;
 	var bRegexTest = regex.test(sText);
 
+	// checks length and regex
 	if( sText.length < iMin || sText.length > iMax ){
 		oInput.parent().addClass('invalid-property');
 		return false;
@@ -276,12 +286,12 @@ function fnValidatePrice(oInput){
 	}
 }
 
+// function validates the images 
 function fnValidateImage(oInput){
 
 	var sPath = oInput.val();
-	var iMin = 1;
-	var iMax = 28;
 
+	// checks length of the path - if zero no image is added
 	if( sPath.length == 0 ){
 		oInput.parent().addClass('invalid-property');
 		return false;

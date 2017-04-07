@@ -1,14 +1,22 @@
 <?php 
+
+// SESSION START 
+// This is where the session is created. 
 session_start();
 
+// Global boolean that tells whether or not the user is logged in
 $bUserLoggedIn = 0;
 
+// if a usersession is active
 if (isset($_SESSION['userSession'])) {
 
+	// Encodes the usersession into a json object
 	$ajs = json_encode($_SESSION['userSession']);
 
+	// Takes a JSON and converts it into a global php variable.
 	$userSession = json_decode($ajs, true);
 
+	// User is logged in and therefore true
 	$bUserLoggedIn = 1;
 
 } 
@@ -49,8 +57,12 @@ if (isset($_SESSION['userSession'])) {
 
 
 	<?php 
+	// If there is an active usersession show following views
+	// Else show loggin page
 	if ($bUserLoggedIn) {
 
+		// Differnt view are show for each userRole of the usersession
+		// The userrole determins which view the user can interact with 
 		if ($userSession['userRole'] == 'superadmin') {
 
 			require_once("views/view-frontpage.php");
@@ -85,23 +97,24 @@ if (isset($_SESSION['userSession'])) {
 	?>
 
 
-
+	<!-- TO DO CREATE FOOTER -->
 	<div class="footer">
 
 	</div>
 
 
-
+	<!-- load jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+	<!-- load application specific scripts -->
 	<script src="scripts/js-app.js"></script>
 	<script src="scripts/js-login.js"></script>
 	<script src="scripts/js-validation.js"></script>
 	<script src="scripts/js-notification.js"></script>
+
+	<!-- load downloaded libraries -->
 	<script src="scripts/jquery.easydropdown.js" type="text/javascript"></script>
 	<script src="scripts/sweetalert.min.js"></script>
-
-
 
 </body>
 </html>

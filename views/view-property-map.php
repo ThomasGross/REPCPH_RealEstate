@@ -106,19 +106,26 @@
 					
 				});
 
+				// boolean check if the map is initalized 
 				var bScriptLoad = 0;
 
+				// Load a script to bottom of the body
 				function loadScript() {
 
 					if (bScriptLoad == 0) {
 						bScriptLoad = 1;
+						// create script element
 						var script = document.createElement('script');
+						// set type
 						script.setAttribute("type","text/javascript");
+						// set src to google map api
 						script.setAttribute("src","http://maps.google.com/maps/api/js?key=AIzaSyBtrjAjyq_r69KeQzH_TETRAa41hm1T5IM&callback=initializeMap");
+						// append to body which initialzes the map
 						document.body.appendChild(script);
 					} 
 				}
 
+				// create the google map and adds markers
 				function initializeMap() {
 
 					var myLatLng = {lat: 55.951410, lng: 10.480957};
@@ -130,26 +137,27 @@
 
 					var map = new google.maps.Map(mapCanvas, mapOptions);
 
-
+					// get all the properties
 					var sUrl = "/CMSV1/services/properties/api-get.php";
 					$.getJSON( sUrl , function( jData ){
 
-						for( var i = 0 ; i < jData.length ; i++ ){
+						for( var i = 0 ; i < jData.length ; i++ ){					
 
-							
-
+							// get a cordinat set
 							var myLatLng = {lat: parseFloat(jData[i].lat), lng: parseFloat(jData[i].long)};
 
 							var infowindow = new google.maps.InfoWindow({
 								content: "loading..."
 							});
 
+							// create and place a marker
 							var marker = new google.maps.Marker({
 								position: myLatLng,
 								map: map,
 								content: '<h1>'+jData[i].street+'</h1>'
 							});
 
+							// add listener to marker which show callout
 							google.maps.event.addListener(marker, 'click', function () {
 									// where I have added .html to the marker object.
 									infowindow.setContent(this.content);
