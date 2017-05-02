@@ -77,7 +77,6 @@ if (isset($_SESSION['userSession'])) {
 			require_once("views/view-frontpage.php");
 			require_once("views/view-properties-admin.php");
 			require_once("views/view-create-edit-property.php");
-			require_once("views/view-users.php");
 			require_once("views/view-property-map.php");
 
 		} else {

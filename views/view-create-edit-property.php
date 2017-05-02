@@ -104,20 +104,7 @@
 			<div class="property-create-edit-contet">
 				<div class="property-table-header">Tilføj Billeder</div>
 				<div class="add-img-container" id="add-img">
-					<div class="add-image-placeholder">
-						<img class="img-preview" src="">
-						<div class="add-symbol fa fa-plus"></div>        
-						<input class="file-input image validate" type="file" name="file-0">
-					</div>
-					<div class="add-image-placeholder img-preview">
-						<div class="add-symbol fa fa-plus" aria-hidden="true""></div>
-						<input class="file-input image validate" type="file" name="file-1">
-					</div>
-					<div class="add-image-placeholder">
-						<img class="img-preview" src="">
-						<div class="add-symbol fa fa-plus"></div>        
-						<input class="file-input image validate" type="file" name="file-2">
-					</div>
+					
 				</div>
 
 				<div class="property-table-header">Tilføj Position</div>

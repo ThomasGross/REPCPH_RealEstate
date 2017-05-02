@@ -102,6 +102,11 @@ $imageArray = array();
 // loop though each posted file
 for($i=0 ; $i<count($_FILES) ; $i++){
 
+	if($_FILES['file-'.$i]["error"] == 4) {
+		//means there is no file uploaded
+		break;
+	} 
+
 	// path to where the file moved to + name of the file
 	$uploadfile = $uploadDir . $_FILES['file-'.$i]['name'];
 
@@ -132,10 +137,10 @@ $jProperty->images = $imageArray;
 array_push( $ajProperties , $jProperty );
 
 // convert the array to text and make it look nice
-$sajUsers = json_encode( $ajProperties , JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
+$sajProperties = json_encode( $ajProperties , JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
 
 // save the text back to the file 
-file_put_contents( $sFileName , $sajUsers);
+file_put_contents( $sFileName , $sajProperties);
 
 // echo status 
 echo '{"status":"ok"}';

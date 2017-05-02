@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "id": "58f7d837e5868",
+        "street": "Rødkælkevej 112",
+        "city": "Glostrup",
+        "municipality": "Glostrup",
+        "zipcode": "2600",
+        "region": "Københavns omegn",
+        "price": "2300000",
+        "long": "12.400732",
+        "lat": "55.680630",
+        "images": [
+            {
+                "imageId": 0,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58f7d837e5868\/apartment2.jpg",
+                "imageName": "apartment2.jpg"
+            },
+            {
+                "imageId": 1,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58f7d837e5868\/apartment3.jpg",
+                "imageName": "apartment3.jpg"
+            },
+            {
+                "imageId": 2,
+                "imageUrl": "\/CMSV1\/services\/properties\/uploads\/58f7d837e5868\/apartment1.jpg",
+                "imageName": "apartment1.jpg"
+            }
+        ]
+    }
+]

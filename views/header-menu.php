@@ -16,7 +16,6 @@ if (isset($_SESSION['userSession'])) {
 
 		$sMenuItems = 	'
 		<div class="link" data-go-to="wdw-properties-admin">Properties</div>
-		<div class="link" data-go-to="wdw-users">Users</div>
 		<div id="btn-logout">Logout</div>
 		';
 	} else if ($userSession['userRole'] == "user") {

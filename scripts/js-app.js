@@ -43,8 +43,14 @@ $(document).on("click",".link", function() {
 		});
 		break;
 		case "wdw-create-edit-property":
+
+		iElementNumber = 0;
+		fnInitialImageInput();
+
 		// if user wants to go to create edit property, check for an id
 		if ($(this).parent().parent().attr("data-id")) {
+
+			console.log("edit");
 
 			// placeholder for the id
 			var propertyId = $(this).parent().parent().attr("data-id");
@@ -474,9 +480,10 @@ function fnGetProperties( fnCallBack ){
 // and returns conformation though a callback
 function fnCreateProperty(formData, fnCallBack ){
 
-	// Display the key/value pairs in a FormData object
-	// for (var pair of formData.entries()) {
- 	//    	console.log(pair[0]+ ', ' + pair[1]); 
+	// var form = new FormData(formData);
+	// //Display the key/value pairs in a FormData object
+	// for (var pair of form.entries()) {
+	// 	console.log(pair[0]+ ', ' + pair[1]); 
 	// }
 
 	var sUrl = "/CMSV1/services/properties/api-create.php";
@@ -501,7 +508,27 @@ function fnCreateProperty(formData, fnCallBack ){
 ///// EDIT
 
 // TO DO: CREATE EDIT FUNCTION
-function fnEditProperty( fnCallBack ){
+function fnEditProperty(formData, fnCallBack ){
+
+	var sUrl = "/CMSV1/services/properties/api-edit.php";
+
+	$.ajax({
+		"url": sUrl,
+		"type":"post",
+		"data": new FormData(formData),
+		"contentType":false,
+		// "dataType": "json",
+		"processData":false,
+		"cache":false
+
+	}).done( function( data ){
+		// fnCallBack(data);
+		console.log(data);
+
+	}).fail( function( data ){
+
+	});
+
 	
 }
 
@@ -543,6 +570,12 @@ function fnRemovePropertyAttr(){
 	$("#txt-create-edit-property-price").val( "" );
 	$("#txt-create-edit-property-long").val( "" );
 	$("#txt-create-edit-property-lat").val( "" );
+	
+
+	$("#uploads-container").remove();
+	$("#uploaded-img").remove();
+
+
 };
 
 // function that moves all values on propertytable to propertyform
@@ -557,7 +590,26 @@ function fnPopulatePropertyForm(jData){
 	$("#txt-create-edit-property-long").val( jData.long );
 	$("#txt-create-edit-property-lat").val( jData.lat );
 
-	// TO DO: TRANSFER IMAGE
+
+	$("#uploads-container").remove();
+	$("#uploaded-img").remove();
+
+	var imgArray = jData.images
+
+	var sUploadedImages = '<div id="uploads-container" class="property-table-header">Uploadede Billeder</div>\
+	<div class="add-img-container" id="uploaded-img">\
+	</div>'
+
+	$(".property-create-edit-contet").prepend(sUploadedImages);
+
+	for (var i = 0; i < imgArray.length; i++) {
+
+		// Template 
+		var sDiv = '<div id="add-image-'+imgArray[i].imageId+'" class="add-image-placeholder"></div>';
+		$("#uploaded-img").prepend(sDiv);
+		$("#add-image-"+imgArray[i].imageId).css("background-image", "url('/CMSV1/services/properties/uploads/"+ jData.id +"/"+ imgArray[i].imageName +"')" ); 
+		
+	}
 
 }
 
@@ -650,8 +702,6 @@ $(document).on('change' , '[type="file"]' , function(){
 	preview.onload = function(event){
 		// insert the loaded img in the parent imageplaceholder 
 		$(self).parent().css("background-image", "url('" + event.target.result + "')" ); 
-		// insert the loaded img in the hidden img field  
-		$(self).siblings(".img-preview").attr("src", event.target.result);
 	}
 
 	// if there is tree images uploadet add another image input 
@@ -661,26 +711,59 @@ $(document).on('change' , '[type="file"]' , function(){
 	} else {
 		iElementNumber++
 	}
-
-
 });
+
+function fnInitialImageInput(){
+	var sDiv = '<div class="add-image-placeholder add-image-0" id="add-image-0">\
+	<div class="add-symbol fa fa-plus"></div>\
+	<input id="input-file-0" class="file-input file-input-0 image validate" type="file" name="file-0">\
+	</div>\
+	<div class="add-image-placeholder add-image-1" id="add-image-1">\
+	<div class="add-symbol fa fa-plus" aria-hidden="true""></div>\
+	<input id="input-file-1" class="file-input file-input-1 image validate" type="file" name="file-1">\
+	</div>\
+	<div class="add-image-placeholder add-image-2" id="add-image-2">\
+	<div class="add-symbol fa fa-plus"></div>\
+	<input id="input-file-2" class="file-input file-input-2 image validate" type="file" name="file-2">\
+	</div>'
+
+	$('#add-img').children().remove();
+	$('#add-img').append(sDiv);
+
+
+	console.log(i);
+
+	// for each template added add click invoker
+	$('.add-image-0').on('click', function(){
+		$(this).children('.file-input-0')[0].click();
+	});
+	$('.add-image-1').on('click', function(){
+		$(this).children('.file-input-1')[0].click();
+	});	
+	$('.add-image-2').on('click', function(){
+		$(this).children('.file-input-2')[0].click();
+	});
+
+
+}
 
 // Adds image input to list of image inputs
 function fnCreateImageInput(){
 
 	// Template 
-	var sDiv = '<div class="add-image-placeholder">\
-	<img class="img-preview" src="">\
+	var sDiv = '<div class="add-image-placeholder add-image-'+iElementNumber+'">\
 	<div class="add-symbol fa fa-plus"></div>\
-	<input class="file-input" type="file" name="file-'+iElementNumber+'">\
+	<input class="file-input file-input-'+iElementNumber+'" type="file" name="file-'+iElementNumber+'">\
 	</div>';
 
 	// append template to add-img div
 	$(sDiv).appendTo("#add-img").each(function () {
 
+		var number = iElementNumber
+
 		// for each template added add click invoker
-		$('.add-image-placeholder').on('click', function(){
-			$(this).children('.file-input')[0].click();
+		$('.add-image-'+number).on('click', function(){
+			$(this).children('.file-input-'+iElementNumber)[0].click();
 		});
 	});
 }
@@ -699,29 +782,51 @@ $("#frm-create-edit-property").on('submit', function(e){
 	// temporary placeholder for the form
 	var form = this;
 
+	console.log(form);
+
+
 	// Validate Property fontend
 	fnValidatePropertyForm($(form), function(bValdationCheck){
 
 		// if the validation passed continue
 		if(bValdationCheck){
 
-			// Create property and awaid conformation
-			fnCreateProperty(form, function(jData){
+			// Get id from a hidden input field
+			var sPropertyId = $("#txt-create-edit-property-id").val();
 
-				if (jData.status = "ok") {
-					alert("Property created");
+			if (sPropertyId.length == 0 ) {
+				// Create property and awaid conformation
+				fnCreateProperty(form, function(jData){
 
-				} else {
+					if (jData.status = "ok") {
+						alert("Property created");
 
-					alert("create failed");
-				}
+					} else {
 
-			});
+						alert("create failed");
+					}
+
+				});
+			} else {
+				fnEditProperty(form, function(jData){
+
+					if (jData.status = "ok") {
+						alert("Property edited");
+
+					} else {
+
+						alert("edit failed");
+					}
+				});
+
+			}
+
 		}
 
 	});
 
 });
+
 
 
 
